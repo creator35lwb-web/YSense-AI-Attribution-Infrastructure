@@ -1,4 +1,5 @@
 # YSense AI Attribution Infrastructure
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17072168.svg)](https://doi.org/10.5281/zenodo.17072168)
 
 **DEFENSIVE PUBLICATION / PRIOR ART NOTICE**  
 **Date of First Public Disclosure: 2025-09-07 05:10:00 UTC**  

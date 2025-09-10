@@ -1,0 +1,18 @@
+{
+  "drop_id": "WD-001-ALTON-092025",
+  "title": "An Echo in the Black Box: Finding Trust in the Age of AI",
+  "author": {
+    "name": "Alton Lee Wei Bin",
+    "identifier": "Creator35LWB",
+    "location": "Teluk Intan, Malaysia"
+  },
+  "creation_date": "2025-09-09",
+  "word_count": 3500,
+  "deep_vibe_distillation": ["Trust", "Echo", "Breakthrough"],
+  "z_protocol_tier": 2,
+  "consent_level": "PERSONAL",
+  "revenue_share": 0.20,
+  "attribution_units": 12,
+  "doi_reference": "10.5281/zenodo.17072168",
+  "status": "First wisdom drop establishing attribution framework"
+}

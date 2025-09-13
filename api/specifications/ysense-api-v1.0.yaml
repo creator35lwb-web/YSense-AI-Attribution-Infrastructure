@@ -1,0 +1,487 @@
+# YSense AI Attribution Infrastructure
+# API Specifications v1.0
+# Last Updated: 2025-01-13
+# Status: Development
+
+openapi: 3.0.0
+info:
+  title: YSense Attribution API
+  version: 1.0.0
+  description: AI Attribution Infrastructure with defensive publication protection
+  contact:
+    name: Alton Lee Wei Bin
+    email: creator35lwb@gmail.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+
+servers:
+  - url: https://api.ysense.ai/v1
+    description: Production server (future)
+  - url: http://localhost:8000/v1
+    description: Development server
+
+paths:
+  # ==================
+  # Attribution Engine
+  # ==================
+  
+  /attribution/submit:
+    post:
+      summary: Submit content for attribution
+      description: Submit human contribution for attribution and blockchain recording
+      tags:
+        - Attribution
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - contributor_id
+                - content
+                - content_type
+                - metadata
+              properties:
+                contributor_id:
+                  type: string
+                  description: Unique identifier for contributor
+                  example: "creator35lwb"
+                content:
+                  type: string
+                  description: The actual content being submitted
+                content_type:
+                  type: string
+                  enum: [text, code, wisdom_drop, dataset, feedback]
+                  description: Type of contribution
+                metadata:
+                  type: object
+                  properties:
+                    title:
+                      type: string
+                    description:
+                      type: string
+                    tags:
+                      type: array
+                      items:
+                        type: string
+                    language:
+                      type: string
+                      default: "en"
+                    location:
+                      type: object
+                      properties:
+                        country:
+                          type: string
+                        region:
+                          type: string
+                consent:
+                  type: object
+                  description: Z Protocol consent parameters
+                  properties:
+                    commercial_use:
+                      type: boolean
+                      default: false
+                    ai_training:
+                      type: boolean
+                      default: true
+                    attribution_required:
+                      type: boolean
+                      default: true
+      responses:
+        '201':
+          description: Attribution record created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  attribution_id:
+                    type: string
+                    description: Unique attribution identifier
+                  blockchain_hash:
+                    type: string
+                    description: Blockchain transaction hash
+                  timestamp:
+                    type: string
+                    format: date-time
+                  score:
+                    type: number
+                    description: Initial quality score (0-100)
+                  status:
+                    type: string
+                    enum: [pending, verified, rejected]
+
+  /attribution/verify/{hash}:
+    get:
+      summary: Verify attribution record
+      description: Verify the authenticity of an attribution record
+      tags:
+        - Attribution
+      parameters:
+        - name: hash
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Attribution hash or blockchain hash
+      responses:
+        '200':
+          description: Attribution record found and verified
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AttributionRecord'
+        '404':
+          description: Attribution record not found
+
+  /attribution/retrieve:
+    get:
+      summary: Retrieve attribution records
+      description: Query attribution records with filters
+      tags:
+        - Attribution
+      parameters:
+        - name: contributor_id
+          in: query
+          schema:
+            type: string
+        - name: date_from
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: date_to
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: content_type
+          in: query
+          schema:
+            type: string
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 20
+            maximum: 100
+        - name: offset
+          in: query
+          schema:
+            type: integer
+            default: 0
+      responses:
+        '200':
+          description: List of attribution records
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                  records:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/AttributionRecord'
+
+  # ==================
+  # Wisdom Drops
+  # ==================
+  
+  /wisdom-drops/submit:
+    post:
+      summary: Submit a Wisdom Drop
+      description: Submit curated content for monthly Wisdom Drop consideration
+      tags:
+        - Wisdom Drops
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - title
+                - content
+                - category
+                - contributor_id
+              properties:
+                title:
+                  type: string
+                  maxLength: 200
+                content:
+                  type: string
+                  minLength: 100
+                  maxLength: 5000
+                category:
+                  type: string
+                  enum: [technology, philosophy, culture, science, society]
+                contributor_id:
+                  type: string
+                supporting_links:
+                  type: array
+                  items:
+                    type: string
+                    format: uri
+      responses:
+        '201':
+          description: Wisdom Drop submitted for review
+
+  /wisdom-drops/list:
+    get:
+      summary: List published Wisdom Drops
+      description: Retrieve published Wisdom Drops with pagination
+      tags:
+        - Wisdom Drops
+      parameters:
+        - name: year
+          in: query
+          schema:
+            type: integer
+        - name: month
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 12
+        - name: category
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of Wisdom Drops
+
+  # ==================
+  # Scoring & Analytics
+  # ==================
+  
+  /scoring/calculate:
+    post:
+      summary: Calculate Five-Layer Perception score
+      description: Calculate contribution score using Five-Layer Perception framework
+      tags:
+        - Scoring
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - content
+                - layers
+              properties:
+                content:
+                  type: string
+                layers:
+                  type: object
+                  properties:
+                    clarity:
+                      type: number
+                      minimum: 0
+                      maximum: 10
+                    relevance:
+                      type: number
+                      minimum: 0
+                      maximum: 10
+                    originality:
+                      type: number
+                      minimum: 0
+                      maximum: 10
+                    impact:
+                      type: number
+                      minimum: 0
+                      maximum: 10
+                    verification:
+                      type: number
+                      minimum: 0
+                      maximum: 10
+      responses:
+        '200':
+          description: Calculated score
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total_score:
+                    type: number
+                  weighted_score:
+                    type: number
+                  layer_breakdown:
+                    type: object
+                  recommendations:
+                    type: array
+                    items:
+                      type: string
+
+  /analytics/contributor/{contributor_id}:
+    get:
+      summary: Get contributor analytics
+      description: Retrieve analytics for a specific contributor
+      tags:
+        - Analytics
+      parameters:
+        - name: contributor_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Contributor analytics
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total_contributions:
+                    type: integer
+                  total_score:
+                    type: number
+                  average_score:
+                    type: number
+                  contribution_types:
+                    type: object
+                  monthly_trend:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        month:
+                          type: string
+                        count:
+                          type: integer
+                        score:
+                          type: number
+
+  # ==================
+  # Z Protocol Compliance
+  # ==================
+  
+  /z-protocol/validate:
+    post:
+      summary: Validate Z Protocol compliance
+      description: Check if content meets Z Protocol ethical standards
+      tags:
+        - Z Protocol
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - content
+                - consent_parameters
+              properties:
+                content:
+                  type: string
+                consent_parameters:
+                  type: object
+                  properties:
+                    has_explicit_consent:
+                      type: boolean
+                    respects_cultural_sensitivity:
+                      type: boolean
+                    avoids_harm:
+                      type: boolean
+                    maintains_privacy:
+                      type: boolean
+      responses:
+        '200':
+          description: Validation result
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  is_compliant:
+                    type: boolean
+                  compliance_score:
+                    type: number
+                  violations:
+                    type: array
+                    items:
+                      type: string
+                  recommendations:
+                    type: array
+                    items:
+                      type: string
+
+# ==================
+# Component Schemas
+# ==================
+
+components:
+  schemas:
+    AttributionRecord:
+      type: object
+      properties:
+        attribution_id:
+          type: string
+        contributor_id:
+          type: string
+        content_hash:
+          type: string
+        blockchain_hash:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        content_type:
+          type: string
+        score:
+          type: number
+        status:
+          type: string
+        metadata:
+          type: object
+        consent:
+          type: object
+        verification:
+          type: object
+          properties:
+            verified_by:
+              type: array
+              items:
+                type: string
+            verification_count:
+              type: integer
+            last_verified:
+              type: string
+              format: date-time
+
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      in: header
+      name: X-API-Key
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+security:
+  - ApiKey: []
+  - BearerAuth: []
+
+# ==================
+# Tags Documentation
+# ==================
+
+tags:
+  - name: Attribution
+    description: Core attribution engine operations
+  - name: Wisdom Drops
+    description: Monthly curated content management
+  - name: Scoring
+    description: Five-Layer Perception scoring system
+  - name: Analytics
+    description: Contribution analytics and insights
+  - name: Z Protocol
+    description: Ethical compliance validation

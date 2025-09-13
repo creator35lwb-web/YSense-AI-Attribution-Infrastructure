@@ -1,0 +1,90 @@
+# Contributing to YSense™
+
+## 🚀 Founding Contributor Program
+
+Early contributors (first 100) receive:
+- **Attribution**: Permanent record in blockchain ledger
+- **Revenue Share**: 15-30% based on contribution level
+- **Governance Rights**: Voting on project direction
+- **Z Protocol Certification**: "Founding Contributor" status
+
+## 📝 Contribution Types We Need
+
+### Technical (Urgent - Q1 2026)
+- [ ] Python/FastAPI backend implementation
+- [ ] PostgreSQL database models
+- [ ] Blockchain integration (Ethereum/Polygon)
+- [ ] API endpoint development
+- [ ] Docker/Kubernetes deployment
+
+### Content (Ongoing)
+- [ ] Wisdom Drops submissions
+- [ ] Five-Layer Perception data
+- [ ] Malaysian cultural context examples
+- [ ] Academic use case documentation
+
+### Business Development
+- [ ] University partnership connections
+- [ ] Grant application assistance
+- [ ] Marketing materials
+- [ ] Pitch deck refinement
+
+## 🔧 How to Contribute
+
+### For Code Contributions
+1. Fork the repository
+2. Create feature branch: `git checkout -b feature/your-feature`
+3. Include attribution metadata in commits:
+4. Submit pull request with:
+   - Clear description
+   - Test coverage (when applicable)
+   - Documentation updates
+
+### For Wisdom Drops
+1. Use Five-Layer Perception format
+2. Submit via `wisdom-drops/YYYY/month/` structure
+3. Include metadata.json with attribution
+
+### For Partnerships
+Contact directly: creator35lwb@gmail.com
+
+## 💰 Revenue Share Structure
+
+| Contribution Level | Revenue Share | Requirements |
+|-------------------|---------------|--------------|
+| Core Developer | 30% | Major feature implementation |
+| Feature Contributor | 20% | Significant modules/endpoints |
+| Content Creator | 15% | Regular Wisdom Drops |
+| Community | 10% | Documentation, testing, support |
+
+## 🏛️ Governance
+
+Contributors with 3+ accepted PRs gain:
+- Voting rights on technical decisions
+- Access to private contributor Discord
+- Input on revenue distribution
+
+## 📜 Attribution Rights
+
+All contributors receive:
+- Blockchain-verified attribution
+- Permanent record in project history
+- Rights protected under Apache 2.0 license
+- Z Protocol compliance certification
+
+## 🤝 Code of Conduct
+
+We follow the [Contributor Covenant](https://www.contributor-covenant.org/):
+- Be respectful and inclusive
+- Focus on project goals
+- Support new contributors
+- Maintain confidentiality of trade secrets
+
+## 📧 Questions?
+
+- Technical: Open an issue
+- Partnerships: creator35lwb@gmail.com
+- Urgent: Telegram @Creator35LWB
+
+---
+*Building ethical AI through community contribution*

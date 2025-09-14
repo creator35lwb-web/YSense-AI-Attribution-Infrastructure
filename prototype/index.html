@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YSense Attribution Engine - Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+        
+        .tabs {
+            display: flex;
+            background: #f5f5f5;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .tab {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+        
+        .tab:hover {
+            background: #e0e0e0;
+        }
+        
+        .tab.active {
+            background: white;
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 10px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+        }
+        
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f0f7ff;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .result h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .result pre {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 12px;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .stat-card h3 {
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+        
+        .stat-card p {
+            opacity: 0.9;
+            font-size: 0.9em;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            gap: 20px;
+            margin: 10px 0;
+        }
+        
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            font-weight: normal;
+        }
+        
+        .checkbox-group input {
+            width: auto;
+            margin-right: 5px;
+        }
+        
+        .info-box {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .info-box h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        .layers-input {
+            display: grid;
+            gap: 15px;
+        }
+        
+        .layer-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>YSense™</h1>
+            <p>AI Attribution Infrastructure | Z Protocol v0.1 Pilot</p>
+        </div>
+        
+        <div class="tabs">
+            <div class="tab active" onclick="switchTab('register')">Register Creator</div>
+            <div class="tab" onclick="switchTab('create')">Create Attribution</div>
+            <div class="tab" onclick="switchTab('verify')">Verify Content</div>
+            <div class="tab" onclick="switchTab('stats')">Statistics</div>
+        </div>
+        
+        <div class="content">
+            <!-- Register Creator Tab -->
+            <div id="register" class="tab-content active">
+                <h2>Register as Content Creator</h2>
+                <div class="info-box">
+                    <h4>Why Register?</h4>
+                    <p>Registration enables attribution tracking and potential revenue sharing for your contributions to AI training datasets.</p>
+                </div>
+                
+                <div class="form-group">
+                    <label>Name *</label>
+                    <input type="text" id="creatorName" placeholder="Enter your full name">
+                </div>
+                
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" id="creatorEmail" placeholder="your@email.com">
+                </div>
+                
+                <div class="form-group">
+                    <label>Cultural Affiliation (Optional)</label>
+                    <input type="text" id="culturalAffiliation" placeholder="e.g., Malaysian, Indigenous Community Name">
+                </div>
+                
+                <button onclick="registerCreator()">Register Creator</button>
+                
+                <div id="registerResult"></div>
+            </div>
+            
+            <!-- Create Attribution Tab -->
+            <div id="create" class="tab-content">
+                <h2>Create Content Attribution</h2>
+                
+                <div class="form-group">
+                    <label>Creator ID *</label>
+                    <input type="text" id="attributionCreatorId" placeholder="Your creator ID from registration">
+                </div>
+                
+                <div class="form-group">
+                    <label>Title *</label>
+                    <input type="text" id="contentTitle" placeholder="Title of your content">
+                </div>
+                
+                <div class="form-group">
+                    <label>Content *</label>
+                    <textarea id="contentBody" rows="5" placeholder="The actual content you want to attribute"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Consent Level</label>
+                    <select id="consentLevel">
+                        <option value="public">Public - Freely usable</option>
+                        <option value="personal" selected>Personal - Personal use only</option>
+                        <option value="cultural">Cultural - Sensitivity required</option>
+                        <option value="sacred">Sacred - Restricted access</option>
+                        <option value="therapeutic">Therapeutic - Mental health context</option>
+                    </select>
+                </div>
+                
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" id="allowAI">
+                        Allow AI Training
+                    </label>
+                    <label>
+                        <input type="checkbox" id="allowCommercial">
+                        Allow Commercial Use
+                    </label>
+                </div>
+                
+                <button onclick="createAttribution()">Create Attribution</button>
+                
+                <div id="createResult"></div>
+            </div>
+            
+            <!-- Verify Tab -->
+            <div id="verify" class="tab-content">
+                <h2>Verify Content Attribution</h2>
+                
+                <div class="info-box">
+                    <h4>How Verification Works</h4>
+                    <p>Paste any content below. We'll generate its hash and check if attribution exists in our system.</p>
+                </div>
+                
+                <div class="form-group">
+                    <label>Content to Verify</label>
+                    <textarea id="verifyContent" rows="5" placeholder="Paste the content you want to verify"></textarea>
+                </div>
+                
+                <button onclick="verifyContent()">Verify Attribution</button>
+                
+                <div id="verifyResult"></div>
+            </div>
+            
+            <!-- Statistics Tab -->
+            <div id="stats" class="tab-content">
+                <h2>Platform Statistics</h2>
+                
+                <div class="stats" id="statsDisplay">
+                    <div class="stat-card">
+                        <h3>-</h3>
+                        <p>Total Creators</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>-</h3>
+                        <p>Total Attributions</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>-</h3>
+                        <p>Total Views</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>-</h3>
+                        <p>AI Training Uses</p>
+                    </div>
+                </div>
+                
+                <button onclick="loadStats()" style="margin-top: 20px">Refresh Statistics</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // API base URL - Update this when deployed
+        const API_URL = 'http://localhost:3000';
+        
+        // Switch tabs
+        function switchTab(tabName) {
+            // Update tab buttons
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Update content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(tabName).classList.add('active');
+            
+            // Load stats if switching to stats tab
+            if (tabName === 'stats') {
+                loadStats();
+            }
+        }
+        
+        // Register creator
+        async function registerCreator() {
+            const name = document.getElementById('creatorName').value;
+            const email = document.getElementById('creatorEmail').value;
+            const culturalAffiliation = document.getElementById('culturalAffiliation').value;
+            
+            if (!name || !email) {
+                alert('Name and email are required');
+                return;
+            }
+            
+            try {
+                const response = await fetch(`${API_URL}/api/creators`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name,
+                        email,
+                        culturalAffiliation
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    document.getElementById('registerResult').innerHTML = `
+                        <div class="result">
+                            <h3>✅ Registration Successful!</h3>
+                            <p><strong>Your Creator ID:</strong> ${data.creatorId}</p>
+                            <p style="color: #666; margin-top: 10px">
+                                Save this ID - you'll need it to create attributions
+                            </p>
+                        </div>
+                    `;
+                    
+                    // Copy ID to clipboard
+                    navigator.clipboard.writeText(data.creatorId);
+                } else {
+                    throw new Error(data.error);
+                }
+            } catch (error) {
+                document.getElementById('registerResult').innerHTML = `
+                    <div class="result" style="border-color: red; background: #ffe6e6;">
+                        <h3>❌ Registration Failed</h3>
+                        <p>${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+        
+        // Create attribution
+        async function createAttribution() {
+            const creatorId = document.getElementById('attributionCreatorId').value;
+            const title = document.getElementById('contentTitle').value;
+            const content = document.getElementById('contentBody').value;
+            const consentLevel = document.getElementById('consentLevel').value;
+            const allowAI = document.getElementById('allowAI').checked;
+            const allowCommercial = document.getElementById('allowCommercial').checked;
+            
+            if (!creatorId || !content) {
+                alert('Creator ID and content are required');
+                return;
+            }
+            
+            try {
+                const response = await fetch(`${API_URL}/api/attributions`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        creatorId,
+                        title,
+                        content,
+                        consentLevel,
+                        allowAI,
+                        allowCommercial
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    document.getElementById('createResult').innerHTML = `
+                        <div class="result">
+                            <h3>✅ Attribution Created!</h3>
+                            <p><strong>Attribution ID:</strong> ${data.attributionId}</p>
+                            <p><strong>Content Hash:</strong> ${data.contentHash}</p>
+                            <p><strong>Timestamp:</strong> ${new Date(data.timestamp).toLocaleString()}</p>
+                            <p style="color: #666; margin-top: 10px">
+                                Your content is now protected with Z Protocol attribution
+                            </p>
+                        </div>
+                    `;
+                } else {
+                    throw new Error(data.error);
+                }
+            } catch (error) {
+                document.getElementById('createResult').innerHTML = `
+                    <div class="result" style="border-color: red; background: #ffe6e6;">
+                        <h3>❌ Attribution Failed</h3>
+                        <p>${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+        
+        // Verify content
+        async function verifyContent() {
+            const content = document.getElementById('verifyContent').value;
+            
+            if (!content) {
+                alert('Please enter content to verify');
+                return;
+            }
+            
+            // Calculate hash client-side (for demo - normally would be server-side)
+            const encoder = new TextEncoder();
+            const data = encoder.encode(content);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            const hash = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            
+            try {
+                const response = await fetch(`${API_URL}/api/attributions/verify/${hash}`);
+                const data = await response.json();
+                
+                if (data.verified) {
+                    document.getElementById('verifyResult').innerHTML = `
+                        <div class="result">
+                            <h3>✅ Attribution Verified!</h3>
+                            <p><strong>Creator:</strong> ${data.attribution.creator}</p>
+                            <p><strong>Created:</strong> ${new Date(data.attribution.timestamp).toLocaleString()}</p>
+                            <p><strong>Consent Level:</strong> ${data.attribution.consent.level}</p>
+                            <p><strong>AI Training:</strong> ${data.attribution.consent.allowAI ? 'Allowed' : 'Not Allowed'}</p>
+                            <p><strong>Commercial Use:</strong> ${data.attribution.consent.allowCommercial ? 'Allowed' : 'Not Allowed'}</p>
+                        </div>
+                    `;
+                } else {
+                    document.getElementById('verifyResult').innerHTML = `
+                        <div class="result" style="border-color: orange; background: #fff3cd;">
+                            <h3>⚠️ No Attribution Found</h3>
+                            <p>This content has no recorded attribution in the YSense system.</p>
+                            <p style="margin-top: 10px">Content Hash: ${hash}</p>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                document.getElementById('verifyResult').innerHTML = `
+                    <div class="result" style="border-color: red; background: #ffe6e6;">
+                        <h3>❌ Verification Error</h3>
+                        <p>${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+        
+        // Load statistics
+        async function loadStats() {
+            try {
+                const response = await fetch(`${API_URL}/api/stats`);
+                const data = await response.json();
+                
+                document.getElementById('statsDisplay').innerHTML = `
+                    <div class="stat-card">
+                        <h3>${data.totalCreators}</h3>
+                        <p>Total Creators</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>${data.totalAttributions}</h3>
+                        <p>Total Attributions</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>${data.totalViews}</h3>
+                        <p>Total Views</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>${data.totalUses}</h3>
+                        <p>AI Training Uses</p>
+                    </div>
+                `;
+            } catch (error) {
+                console.error('Failed to load stats:', error);
+            }
+        }
+        
+        // Load stats on page load
+        loadStats();
+    </script>
+</body>
+</html>

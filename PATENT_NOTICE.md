@@ -5,7 +5,7 @@
 **Date of First Public Disclosure:** 2025-09-07 05:10:00 UTC  
 **Inventor:** Alton Lee Wei Bin  
 **Location:** Teluk Intan, Perak, Malaysia  
-**Repository:** GitHub (https://github.com/creator35lwb-web/YSenseAI-AI-Attribution-Infrastructure)  
+**Repository:** GitHub (https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure)  
 
 ## Purpose of This Publication
 
@@ -83,7 +83,7 @@ When citing this publication as prior art in patent applications or disputes, us
 ```
 Lee Wei Bin, Alton. "YSenseAI Attribution Infrastructure." 
 GitHub Repository, September 7, 2025. 
-URL: https://github.com/creator35lwb-web/YSenseAI-AI-Attribution-Infrastructure
+URL: https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure
 Prior Art Type: Defensive Publication
 Disclosure Timestamp: 2025-09-07 05:10:00 UTC
 ```

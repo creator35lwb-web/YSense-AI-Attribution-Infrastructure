@@ -8,6 +8,18 @@
 
 This repository constitutes a defensive publication under 35 U.S.C. § 102(b) establishing prior art for AI attribution and verification systems.
 
+## 📝 Note on Module Naming
+
+The official brand name is **YSenseAI™** (慧觉™), but the Python module is named `ysense` for brevity and ease of use. This is a common practice in the Python community:
+
+- `sklearn` for Scikit-Learn
+- `cv2` for OpenCV
+- `pd` for Pandas
+
+When you see `from ysense import ...` in the code, this refers to the **YSenseAI™** system.
+
+---
+
 ## 🔒 Invention Disclosure
 
 This publication discloses novel methods and systems for:
@@ -843,7 +855,7 @@ If you use this work in your research or products, please cite:
   title = {YSenseAI Attribution Infrastructure},
   year = {2025},
   publisher = {GitHub},
-  url = {https://github.com/creator35lwb-web/YSenseAI-AI-Attribution-Infrastructure}
+  url = {https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure}
 }
 ```
 

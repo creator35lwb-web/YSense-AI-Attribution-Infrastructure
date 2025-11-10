@@ -121,7 +121,7 @@ app.get('/api/status', (req, res) => {
     version: '0.1-pilot',
     status: 'operational',
     protocol: 'Z Protocol v0.1',
-    documentation: 'https://github.com/Creator35LWB/YSenseAI-AI-Attribution-Infrastructure'
+    documentation: 'https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure'
   });
 });
 

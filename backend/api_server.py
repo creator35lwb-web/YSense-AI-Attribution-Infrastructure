@@ -1,5 +1,5 @@
 """
-YSenseAI" Five-Layer Perception Toolkit" - REST API Server
+YSenseAI™ Five-Layer Perception Toolkit™ - REST API Server
 FastAPI wrapper for production deployment
 
 Author: Alton (with AI collaboration)

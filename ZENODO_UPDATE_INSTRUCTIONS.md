@@ -18,7 +18,7 @@ Since the tag couldn't be pushed due to proxy restrictions, you need to create t
 
 ### Step 1: Create GitHub Release
 
-1. Go to your repository: https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure
+1. Go to your repository: https://github.com/creator35lwb-web/YSenseAI-AI-Attribution-Infrastructure
 
 2. Click on **"Releases"** in the right sidebar (or go to `/releases`)
 
@@ -153,9 +153,9 @@ This is crucial because:
 
 ## 🔗 Important Links
 
-- **GitHub Repository:** https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure
+- **GitHub Repository:** https://github.com/creator35lwb-web/YSenseAI-AI-Attribution-Infrastructure
 - **Current Zenodo Record:** https://zenodo.org/record/17072168
-- **Your Branch:** https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure/tree/claude/push-perception-toolkit-backend-011CUmdvQEnHfi4XfnjQofak
+- **Your Branch:** https://github.com/creator35lwb-web/YSenseAI-AI-Attribution-Infrastructure/tree/claude/push-perception-toolkit-backend-011CUmdvQEnHfi4XfnjQofak
 - **Release Notes:** See `RELEASE_NOTES_v0.3.0.md` in repository
 
 ## 📞 Need Help?

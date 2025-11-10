@@ -1,5 +1,5 @@
 """
-YSense™ Five-Layer Perception Toolkit™ - AI Backend Implementation
+YSenseAI™ Five-Layer Perception Toolkit™ - AI Backend Implementation
 Transforms human experiences into 15+ structured data points for AI training
 
 Author: Alton (with AI collaboration)

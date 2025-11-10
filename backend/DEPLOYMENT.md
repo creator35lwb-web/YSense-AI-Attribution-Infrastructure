@@ -1,4 +1,4 @@
-# YSense™ Backend Deployment Guide
+# YSenseAI™ Backend Deployment Guide
 
 ## Quick Start
 

@@ -1,4 +1,4 @@
-# YSense™ Founder's Wisdom Drops - Analysis
+# YSenseAI™ Founder's Wisdom Drops - Analysis
 
 **Created:** November 3, 2025
 **Source:** "An Echo in the Black Box: Finding Trust in the Age of AI" - Substack Article

@@ -1,4 +1,4 @@
-# YSense™ v0.3.0-backend - Production-Ready Five-Layer Perception Toolkit™
+# YSenseAI™ v0.3.0-backend - Production-Ready Five-Layer Perception Toolkit™
 
 **Release Date:** November 10, 2025
 **DOI:** 10.5281/zenodo.17072168 (to be updated)
@@ -132,8 +132,8 @@ All models use OpenAI-compatible API format.
 
 ```bash
 # Clone repository
-git clone https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure.git
-cd YSense-AI-Attribution-Infrastructure/backend
+git clone https://github.com/creator35lwb-web/YSenseAI-AI-Attribution-Infrastructure.git
+cd YSenseAI-AI-Attribution-Infrastructure/backend
 
 # Install dependencies
 pip3 install -r requirements.txt
@@ -203,14 +203,14 @@ This implementation enables:
 
 ## 🔗 Links
 
-- **GitHub Repository:** https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure
+- **GitHub Repository:** https://github.com/creator35lwb-web/YSenseAI-AI-Attribution-Infrastructure
 - **Zenodo Archive:** https://doi.org/10.5281/zenodo.17072168
 - **Platform:** https://ysenseai.org
-- **Documentation:** https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure/tree/main/backend
+- **Documentation:** https://github.com/creator35lwb-web/YSenseAI-AI-Attribution-Infrastructure/tree/main/backend
 
 ## 🙏 Acknowledgments
 
-This implementation was developed through human-AI collaboration, demonstrating the very principles YSense™ aims to capture and preserve.
+This implementation was developed through human-AI collaboration, demonstrating the very principles YSenseAI™ aims to capture and preserve.
 
 ## 🚀 Next Steps
 
@@ -226,13 +226,13 @@ This implementation was developed through human-AI collaboration, demonstrating 
 ## For Citation
 
 ```bibtex
-@software{ysense_2025,
+@software{ysenseai_2025,
   author = {Lee Wei Bin, Alton},
-  title = {YSense AI Attribution Infrastructure v0.3.0-backend},
+  title = {YSenseAI Attribution Infrastructure v0.3.0-backend},
   year = {2025},
   publisher = {Zenodo},
   version = {v0.3.0-backend},
   doi = {10.5281/zenodo.17072168},
-  url = {https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure}
+  url = {https://github.com/creator35lwb-web/YSenseAI-AI-Attribution-Infrastructure}
 }
 ```

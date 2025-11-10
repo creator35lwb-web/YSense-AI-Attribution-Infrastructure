@@ -1,4 +1,4 @@
-# YSense™ Five-Layer Perception Toolkit™ - AI Backend
+# YSenseAI™ Five-Layer Perception Toolkit™ - AI Backend
 
 **Version:** 1.0
 **Author:** Alton (with AI collaboration)
@@ -6,7 +6,7 @@
 
 ## Overview
 
-This is the **AI backend implementation** of the YSense™ Five-Layer Perception Toolkit™, which transforms human experiences into **15+ structured data points** for AI training. The toolkit processes user stories through five distinct perceptual layers to capture the multi-dimensional richness of human wisdom.
+This is the **AI backend implementation** of the YSenseAI™ Five-Layer Perception Toolkit™, which transforms human experiences into **15+ structured data points** for AI training. The toolkit processes user stories through five distinct perceptual layers to capture the multi-dimensional richness of human wisdom.
 
 ## What This Does
 
@@ -186,9 +186,9 @@ Each wisdom drop contains **17 structured data points**:
 
 **Total: 24+ structured data points per wisdom drop**
 
-## Integration with YSense Platform
+## Integration with YSenseAI Platform
 
-This backend can be integrated with the YSense™ platform frontend (ysenseai.org) in several ways:
+This backend can be integrated with the YSenseAI™ platform frontend (ysenseai.org) in several ways:
 
 ### 1. REST API Integration
 
@@ -315,7 +315,7 @@ Processing time per wisdom drop:
 
 ## License
 
-This implementation is part of the YSense™ defensive publication (DOI: 10.5281/zenodo.17072168) establishing prior art for AI attribution systems.
+This implementation is part of the YSenseAI™ defensive publication (DOI: 10.5281/zenodo.17072168) establishing prior art for AI attribution systems.
 
 ## Contact
 

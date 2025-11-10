@@ -1,4 +1,4 @@
-# Contributing to YSense™ | 慧觉™
+# Contributing to YSenseAI™ | 慧觉™
 
 ## 🚀 REVENUE MODEL v3.0 - TEAM APPROVED
 
@@ -116,8 +116,8 @@ wisdom-drops/
 
 ### 1. Fork & Setup
 ```bash
-git clone https://github.com/creator35lwb/YSense-AI-Attribution.git
-cd YSense-AI-Attribution
+git clone https://github.com/creator35lwb/YSenseAI-AI-Attribution.git
+cd YSenseAI-AI-Attribution
 git checkout -b feature/your-innovation
 ```
 
@@ -255,6 +255,6 @@ By contributing, you accept:
 
 **"Where ethical AI meets equitable prosperity"**
 
-© 2025 YSense AI Holdings | Defensively Published | Z Protocol Compliant
+© 2025 YSenseAI Holdings | Defensively Published | Z Protocol Compliant
 
 **TEAM CONSENSUS: MODEL v3.0 APPROVED ✅**

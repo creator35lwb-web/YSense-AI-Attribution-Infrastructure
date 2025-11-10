@@ -1,4 +1,4 @@
-# YSense AI Attribution Infrastructure
+# YSenseAI Attribution Infrastructure
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17072168.svg)](https://doi.org/10.5281/zenodo.17072168)
 
 **DEFENSIVE PUBLICATION / PRIOR ART NOTICE**  
@@ -32,7 +32,7 @@ This publication discloses novel methods and systems for:
 
 ## Overview
 
-YSense AI Attribution Infrastructure represents a breakthrough in solving the critical problem of attribution, verification, and consent management in AI-generated content and training data. As AI systems become increasingly sophisticated, the need for transparent, verifiable attribution of both human and AI contributions becomes paramount.
+YSenseAI Attribution Infrastructure represents a breakthrough in solving the critical problem of attribution, verification, and consent management in AI-generated content and training data. As AI systems become increasingly sophisticated, the need for transparent, verifiable attribution of both human and AI contributions becomes paramount.
 
 ### The Problem We Solve
 
@@ -58,7 +58,7 @@ A comprehensive infrastructure that provides:
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│              YSense AI Attribution System                   │
+│              YSenseAI Attribution System                   │
 ├─────────────────────────────────────────────────────────────┤
 │                                                             │
 │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐    │
@@ -345,7 +345,7 @@ class HybridCollaborationFramework:
 ### Quick Start
 
 ```python
-# Initialize the YSense Attribution System
+# Initialize the YSenseAI Attribution System
 from ysense import AttributionEngine, VerificationSystem, PerceptionToolkit
 
 # Create attribution engine
@@ -840,10 +840,10 @@ If you use this work in your research or products, please cite:
 ```bibtex
 @software{ysense2025,
   author = {Lee Wei Bin, Alton},
-  title = {YSense AI Attribution Infrastructure},
+  title = {YSenseAI Attribution Infrastructure},
   year = {2025},
   publisher = {GitHub},
-  url = {https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure}
+  url = {https://github.com/creator35lwb-web/YSenseAI-AI-Attribution-Infrastructure}
 }
 ```
 

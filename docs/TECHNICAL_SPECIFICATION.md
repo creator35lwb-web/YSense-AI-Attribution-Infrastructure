@@ -1,4 +1,4 @@
-# YSense™ AI Attribution Infrastructure
+# YSenseAI™ AI Attribution Infrastructure
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17072168.svg)](https://doi.org/10.5281/zenodo.17072168)
 [![License](https://img.shields.io/badge/License-Apache_2.0-yellow.svg)](LICENSE.txt)
@@ -8,9 +8,9 @@
 
 **Protected by Defensive Publication** - Establishing prior art for AI attribution systems (DOI: 10.5281/zenodo.17072168)
 
-### 🎯 What is YSense?
+### 🎯 What is YSenseAI?
 
-YSense provides attribution infrastructure ensuring human contributors receive recognition and compensation when their knowledge trains AI systems.
+YSenseAI provides attribution infrastructure ensuring human contributors receive recognition and compensation when their knowledge trains AI systems.
 
 ### 📋 Core Components
 

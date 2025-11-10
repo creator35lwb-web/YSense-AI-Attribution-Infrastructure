@@ -1,11 +1,11 @@
-# YSense AI Attribution Infrastructure
+# YSenseAI Attribution Infrastructure
 # API Specifications v1.0
 # Last Updated: 2025-01-13
 # Status: Development
 
 openapi: 3.0.0
 info:
-  title: YSense Attribution API
+  title: YSenseAI Attribution API
   version: 1.0.0
   description: AI Attribution Infrastructure with defensive publication protection
   contact:

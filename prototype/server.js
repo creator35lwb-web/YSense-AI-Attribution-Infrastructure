@@ -1,4 +1,4 @@
-// YSense Attribution Engine v0.1-pilot
+// YSenseAI Attribution Engine v0.1-pilot
 // Minimal Working Prototype for Academic Validation
 // Apache 2.0 License - Alton Lee Wei Bin
 
@@ -117,11 +117,11 @@ function createAttribution(data) {
 // API status endpoint
 app.get('/api/status', (req, res) => {
   res.json({
-    service: 'YSense Attribution Engine',
+    service: 'YSenseAI Attribution Engine',
     version: '0.1-pilot',
     status: 'operational',
     protocol: 'Z Protocol v0.1',
-    documentation: 'https://github.com/Creator35LWB/YSense-AI-Attribution-Infrastructure'
+    documentation: 'https://github.com/Creator35LWB/YSenseAI-AI-Attribution-Infrastructure'
   });
 });
 
@@ -372,7 +372,7 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`
 ╔════════════════════════════════════════╗
-║   YSense Attribution Engine v0.1       ║
+║   YSenseAI Attribution Engine v0.1       ║
 ║   Z Protocol Implementation (Pilot)    ║
 ║                                        ║
 ║   Status: RUNNING                      ║

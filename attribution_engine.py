@@ -1,5 +1,5 @@
 """
-YSense AI Attribution Infrastructure
+YSenseAI Attribution Infrastructure
 Copyright 2025 Alton Lee Wei Bin
 Licensed under Apache License 2.0
 

@@ -1,4 +1,4 @@
-# YSense Prototype v0.1
+# YSenseAI Prototype v0.1
 
 ## Live Demo
 https://ysense-ai-attribution-infrastructure.onrender.com

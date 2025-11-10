@@ -116,8 +116,8 @@ wisdom-drops/
 
 ### 1. Fork & Setup
 ```bash
-git clone https://github.com/creator35lwb/YSenseAI-AI-Attribution.git
-cd YSenseAI-AI-Attribution
+git clone https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure.git
+cd YSense-AI-Attribution-Infrastructure
 git checkout -b feature/your-innovation
 ```
 

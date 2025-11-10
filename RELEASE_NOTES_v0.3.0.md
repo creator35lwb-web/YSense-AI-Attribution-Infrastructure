@@ -1,8 +1,10 @@
 # YSenseAI™ v0.3.0-backend - Production-Ready Five-Layer Perception Toolkit™
 
 **Release Date:** November 10, 2025
-**DOI:** 10.5281/zenodo.17072168 (to be updated)
-**License:** CC BY 4.0
+**DOI:** 10.5281/zenodo.17569312 (this version)
+**Concept DOI:** 10.5281/zenodo.17072167 (always resolves to latest)
+**Original Prior Art:** 10.5281/zenodo.17072168 (September 7, 2025)
+**License:** Apache License 2.0
 
 ## 🎯 Major Update - Backend Implementation Complete
 
@@ -132,8 +134,8 @@ All models use OpenAI-compatible API format.
 
 ```bash
 # Clone repository
-git clone https://github.com/creator35lwb-web/YSenseAI-AI-Attribution-Infrastructure.git
-cd YSenseAI-AI-Attribution-Infrastructure/backend
+git clone https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure.git
+cd YSense-AI-Attribution-Infrastructure/backend
 
 # Install dependencies
 pip3 install -r requirements.txt
@@ -181,7 +183,7 @@ See [backend/README.md](backend/README.md) for complete documentation.
 - ✅ Attribution scoring included in all wisdom drops
 - ✅ Blockchain-ready data structure (compatible with attribution_engine.py)
 - ✅ GDPR-compliant data handling
-- ✅ CC BY 4.0 licensed for maximum academic use
+- ✅ Apache License 2.0 for open source use
 
 ## 🎓 For Researchers and Developers
 
@@ -203,10 +205,10 @@ This implementation enables:
 
 ## 🔗 Links
 
-- **GitHub Repository:** https://github.com/creator35lwb-web/YSenseAI-AI-Attribution-Infrastructure
-- **Zenodo Archive:** https://doi.org/10.5281/zenodo.17072168
+- **GitHub Repository:** https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure
+- **Zenodo Archive:** https://doi.org/10.5281/zenodo.17569312
 - **Platform:** https://ysenseai.org
-- **Documentation:** https://github.com/creator35lwb-web/YSenseAI-AI-Attribution-Infrastructure/tree/main/backend
+- **Documentation:** https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure/tree/main/backend
 
 ## 🙏 Acknowledgments
 
@@ -232,7 +234,7 @@ This implementation was developed through human-AI collaboration, demonstrating 
   year = {2025},
   publisher = {Zenodo},
   version = {v0.3.0-backend},
-  doi = {10.5281/zenodo.17072168},
-  url = {https://github.com/creator35lwb-web/YSenseAI-AI-Attribution-Infrastructure}
+  doi = {10.5281/zenodo.17569312},
+  url = {https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure}
 }
 ```

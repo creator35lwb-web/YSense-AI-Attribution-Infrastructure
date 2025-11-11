@@ -850,7 +850,7 @@ All innovations disclosed in this repository are hereby dedicated to the public 
 If you use this work in your research or products, please cite:
 
 ```bibtex
-@software{ysense2025,
+@software{ysenseai2025,
   author = {Lee Wei Bin, Alton},
   title = {YSenseAI Attribution Infrastructure},
   year = {2025},

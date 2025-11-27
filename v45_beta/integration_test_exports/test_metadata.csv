@@ -1,0 +1,2 @@
+asset_id,author_did,consent_tier,revenue_share,quality_score,training_ready,created_at,context_efficiency,reasoning_depth,cultural_specificity,emotional_richness,attention_density,compression_quality,essence_word_1,essence_word_2,essence_word_3
+ysense-8d3b7213a279,did:ysense:3506ea43d9207038,tier3,25%,0.74,False,2025-11-27T06:49:26.285072Z,1.0,1.0,0.553,0.327,0.933,0.4,Patience,Tradition,Alchemy

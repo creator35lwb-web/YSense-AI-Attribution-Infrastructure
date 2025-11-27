@@ -1,0 +1,51 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: 'YSenseAI: Ethical AI Training Data Platform'
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Alton
+    family-names: (creator35lwb)
+    email: alton@ysenseai.org
+repository-code: >-
+  https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure
+url: 'https://ysenseai.org'
+abstract: >-
+  YSenseAI is an open-source platform that enables
+  individuals to share their cultural wisdom, personal
+  reflections, and lived experiences in a way that respects
+  their sovereignty, provides fair compensation, and
+  protects cultural heritage. Built on the Z-Protocol v2.0
+  framework, it ensures transparent attribution, granular
+  consent management, and ethical AI training data
+  practices.
+keywords:
+  - ethical AI
+  - AI training data
+  - attribution
+  - consent management
+  - cultural protection
+  - Z-Protocol
+  - GDPR compliance
+  - data sovereignty
+  - wisdom preservation
+  - chain of thought
+license: MIT
+version: 4.5.0-beta
+date-released: '2025-11-27'
+references:
+  - type: article
+    authors:
+      - given-names: Alton
+        family-names: (creator35lwb)
+    title: >-
+      Z-Protocol v2.0: Ethical Framework for AI Attribution
+      and Cultural Protection
+    year: 2025
+    month: 11
+    doi: 10.5281/zenodo.17072168
+    url: 'https://doi.org/10.5281/zenodo.17072168'

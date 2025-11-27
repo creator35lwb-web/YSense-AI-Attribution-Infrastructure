@@ -1,0 +1,53 @@
+{
+  "export_metadata": {
+    "platform": "YSenseAI",
+    "version": "4.5-beta",
+    "exported_at": "2025-11-27T06:47:59.082798Z",
+    "total_submissions": 1,
+    "training_ready": 1
+  },
+  "submissions": [
+    {
+      "asset_id": "ysense-test001",
+      "author_did": "did:ysense:test001",
+      "consent_tier": "tier3",
+      "revenue_share": "25%",
+      "training_ready": true,
+      "created_at": "2025-11-27T00:00:00Z",
+      "fingerprint": "abc123...",
+      "distilled_essence": [
+        "Patience",
+        "Tradition",
+        "Alchemy"
+      ],
+      "quality_scores": {
+        "context_efficiency": 0.85,
+        "reasoning_depth": 0.9,
+        "cultural_specificity": 0.92,
+        "emotional_richness": 0.88,
+        "attention_density": 0.87,
+        "compression_quality": 0.91,
+        "overall": 0.89
+      },
+      "training_format": {
+        "instruction": "Extract wisdom using 5-layer perception",
+        "input": "A grandmother teaches patience through cooking rendang",
+        "output": {
+          "chain_of_thought": [
+            "Narrative: Generational knowledge transfer",
+            "Somatic: Warmth, reverence, connection",
+            "Attention: Paste darkening like memories",
+            "Synesthetic: Patient, Earthy, Sacred",
+            "Temporal: Time itself cooking"
+          ],
+          "distilled_essence": [
+            "Patience",
+            "Tradition",
+            "Alchemy"
+          ],
+          "wisdom_conclusion": "True mastery requires slowness"
+        }
+      }
+    }
+  ]
+}

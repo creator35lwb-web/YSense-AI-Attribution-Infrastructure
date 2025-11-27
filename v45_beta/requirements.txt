@@ -1,0 +1,22 @@
+# YSenseAI v4.5-Beta: Python Dependencies
+
+# Core Framework
+streamlit==1.51.0
+
+# AI APIs
+anthropic==0.42.0
+openai==1.59.5
+
+# Utilities
+python-dotenv==1.0.1
+
+# Data Processing (already included with streamlit)
+# pandas
+# numpy
+
+# Optional: Database (if migrating from SQLite)
+# psycopg2-binary==2.9.9  # For PostgreSQL
+# sqlalchemy==2.0.36      # For ORM
+
+# Optional: Monitoring
+# sentry-sdk==2.20.0      # For error tracking

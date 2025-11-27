@@ -1,0 +1,51 @@
+{
+  "title": "YSenseAI v4.5-Beta: Ethical AI Training Data Platform with Story-First UX",
+  "description": "YSenseAI is an open-source platform for collecting AI training data ethically, with consent, attribution, and fair compensation. Features story-first AI-native UX, Z-Protocol v2.0 ethical framework, cryptographic attribution (SHA-256 + DID), and training-optimized quality metrics. Built with Python/Streamlit, integrates Claude (Anthropic) and Qwen (Alibaba Cloud) APIs.",
+  "version": "4.5.0-beta",
+  "upload_type": "software",
+  "creators": [
+    {
+      "name": "Alton (creator35lwb)",
+      "affiliation": "YSenseAI™ | 慧觉™"
+    }
+  ],
+  "access_right": "open",
+  "license": "MIT",
+  "keywords": [
+    "AI",
+    "ethical AI",
+    "machine learning",
+    "training data",
+    "data sovereignty",
+    "attribution",
+    "consent",
+    "GDPR",
+    "Z-Protocol",
+    "cultural protection",
+    "Python",
+    "Streamlit",
+    "open source"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.17072168",
+      "relation": "isSupplementTo",
+      "resource_type": "publication-technicalnote",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure",
+      "relation": "isSupplementTo",
+      "resource_type": "software",
+      "scheme": "url"
+    }
+  ],
+  "communities": [
+    {
+      "identifier": "zenodo"
+    }
+  ],
+  "grants": [],
+  "language": "eng",
+  "notes": "YSenseAI v4.5-Beta implements the Z-Protocol v2.0 ethical framework (DOI: 10.5281/zenodo.17072168) for AI training data collection. This release features story-first AI-native UX with collaborative distillation, cryptographic attribution (SHA-256 + DID), 6 training optimization quality metrics, and GDPR-compliant privacy protection. Open source under MIT License (code) and CC BY-SA 4.0 (Z-Protocol framework)."
+}

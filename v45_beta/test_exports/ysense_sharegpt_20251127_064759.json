@@ -1,0 +1,16 @@
+[
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "Extract wisdom using 5-layer perception\n\nA grandmother teaches patience through cooking rendang"
+      },
+      {
+        "from": "gpt",
+        "value": "{\n  \"chain_of_thought\": [\n    \"Narrative: Generational knowledge transfer\",\n    \"Somatic: Warmth, reverence, connection\",\n    \"Attention: Paste darkening like memories\",\n    \"Synesthetic: Patient, Earthy, Sacred\",\n    \"Temporal: Time itself cooking\"\n  ],\n  \"distilled_essence\": [\n    \"Patience\",\n    \"Tradition\",\n    \"Alchemy\"\n  ],\n  \"wisdom_conclusion\": \"True mastery requires slowness\"\n}"
+      }
+    ],
+    "asset_id": "ysense-test001",
+    "quality_score": 0.89
+  }
+]

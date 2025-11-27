@@ -1,0 +1,22 @@
+# YSenseAI v4.5-Beta Production Requirements
+
+# Core Framework
+streamlit==1.29.0
+
+# AI APIs
+anthropic==0.39.0
+openai==1.54.5
+
+# Database
+# For SQLite (included in Python)
+# For PostgreSQL (optional, for production scale):
+# psycopg2-binary==2.9.9
+
+# Utilities
+python-dotenv==1.0.0
+requests==2.31.0
+
+# Export Features
+# For PDF generation (optional):
+# reportlab==4.0.7
+# weasyprint==60.1

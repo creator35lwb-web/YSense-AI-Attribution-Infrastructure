@@ -177,10 +177,10 @@ Ethical framework for AI training data:
 
 **Z-Protocol v2.0**:
 ```bibtex
-@techreport{alton2024zprotocol,
+@techreport{alton2025zprotocol,
   title={Z-Protocol v2.0: Ethical Framework for AI Attribution and Cultural Protection},
   author={Alton (creator35lwb)},
-  year={2024},
+  year={2025},
   institution={YSenseAI},
   doi={10.5281/zenodo.17072168}
 }

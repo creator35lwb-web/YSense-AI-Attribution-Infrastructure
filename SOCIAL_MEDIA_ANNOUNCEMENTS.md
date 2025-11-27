@@ -3,7 +3,7 @@
 **Release Date**: November 27, 2025  
 **Version**: 4.5.0-beta  
 **GitHub**: https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure  
-**DOI**: 10.5281/zenodo.XXXXXXX (update after Zenodo assignment)
+**DOI**: 10.5281/zenodo.17737995 (update after Zenodo assignment)
 
 ---
 
@@ -135,7 +135,7 @@ First open-source implementation of Z-Protocol v2.0 ethical framework.
 ✅ Cultural protection mechanisms
 ✅ GDPR compliance
 
-DOI: 10.5281/zenodo.XXXXXXX
+DOI: 10.5281/zenodo.17737995
 MIT + CC BY-SA 4.0
 
 https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure
@@ -214,7 +214,7 @@ Built with:
 Open source:
 • MIT License (code)
 • CC BY-SA 4.0 (Z-Protocol framework)
-• Academic citation ready (DOI: 10.5281/zenodo.XXXXXXX)
+• Academic citation ready (DOI: 10.5281/zenodo.17737995)
 
 📊 THE IMPACT
 
@@ -501,7 +501,7 @@ YSenseAI implements the Z-Protocol v2.0 ethical framework, providing:
 
 The platform is now open-sourced and available for research use:
 • **GitHub**: https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure
-• **DOI**: 10.5281/zenodo.XXXXXXX
+• **DOI**: 10.5281/zenodo.17737995
 • **Z-Protocol DOI**: 10.5281/zenodo.17072168
 • **License**: MIT (code), CC BY-SA 4.0 (framework)
 
@@ -601,7 +601,7 @@ Six training optimization signals:
 - MIT License (code)
 - CC BY-SA 4.0 (Z-Protocol framework)
 - GitHub: https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure
-- DOI: 10.5281/zenodo.XXXXXXX
+- DOI: 10.5281/zenodo.17737995
 
 ## Looking For
 

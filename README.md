@@ -1,6 +1,6 @@
 # YSenseAI™ v4.5-Beta: Ethical AI Training Data Platform
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17737995.svg)](https://doi.org/10.5281/zenodo.17737995)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Z-Protocol v2.0](https://img.shields.io/badge/Z--Protocol-v2.0-blue.svg)](https://doi.org/10.5281/zenodo.17072168)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
@@ -496,7 +496,7 @@ If you use YSenseAI in your research, please cite:
   year = {2025},
   month = {11},
   url = {https://github.com/YOUR_USERNAME/YSense-AI-Attribution-Infrastructure},
-  doi = {10.5281/zenodo.XXXXXXX}
+  doi = {10.5281/zenodo.17737995}
 }
 
 @misc{zprotocol_v2,

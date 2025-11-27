@@ -181,7 +181,7 @@ Thank you to all beta testers, contributors, and the open-source community!
 1. Go to https://zenodo.org/account/settings/github/
 2. Find your repository
 3. Click on the DOI badge
-4. Copy the DOI (format: `10.5281/zenodo.XXXXXXX`)
+4. Copy the DOI (format: `10.5281/zenodo.17737995`)
 
 ### 2.4 Update Documentation with DOI
 
@@ -268,7 +268,7 @@ I'm excited to share YSenseAI v4.5-Beta, an open-source platform that enables et
 Built on the principle that AI training data should be consensual, attributed, compensated, and culturally protected.
 
 GitHub: https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure
-DOI: 10.5281/zenodo.XXXXXXX
+DOI: 10.5281/zenodo.17737995
 
 Feedback welcome!
 ```
@@ -343,7 +343,7 @@ YSenseAI implements the Z-Protocol v2.0 ethical framework, providing:
 The platform is now open-sourced under MIT license and available for research use.
 
 GitHub: https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure
-DOI: 10.5281/zenodo.XXXXXXX
+DOI: 10.5281/zenodo.17737995
 Z-Protocol DOI: 10.5281/zenodo.17072168
 
 I'd be happy to discuss potential collaborations or answer any questions.
@@ -436,6 +436,6 @@ For publication questions:
 **Version**: 4.5.0-beta  
 **License**: MIT (code), CC BY-SA 4.0 (Z-Protocol)  
 **Z-Protocol DOI**: 10.5281/zenodo.17072168  
-**Platform DOI**: 10.5281/zenodo.XXXXXXX (update after Zenodo assignment)
+**Platform DOI**: 10.5281/zenodo.17737995 (update after Zenodo assignment)
 
 © 2025 Alton (creator35lwb)

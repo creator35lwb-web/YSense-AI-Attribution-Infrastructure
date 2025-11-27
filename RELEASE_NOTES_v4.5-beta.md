@@ -3,7 +3,7 @@
 **Release Date**: November 27, 2025  
 **Version**: 4.5.0-beta  
 **Status**: Beta Testing Phase  
-**DOI**: 10.5281/zenodo.XXXXXXX (pending)
+**DOI**: 10.5281/zenodo.17737995 (pending)
 
 ---
 
@@ -376,7 +376,7 @@ If you use YSenseAI in your research, please cite:
   year = {2025},
   month = {11},
   url = {https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure},
-  doi = {10.5281/zenodo.XXXXXXX}
+  doi = {10.5281/zenodo.17737995}
 }
 ```
 
@@ -464,6 +464,6 @@ See [LICENSE](LICENSE) and [LICENSE-ZPROTOCOL](LICENSE-ZPROTOCOL) for details.
 **Version**: 4.5.0-beta  
 **License**: MIT (code), CC BY-SA 4.0 (Z-Protocol)  
 **Z-Protocol DOI**: 10.5281/zenodo.17072168  
-**Platform DOI**: 10.5281/zenodo.XXXXXXX (pending)
+**Platform DOI**: 10.5281/zenodo.17737995 (pending)
 
 © 2025 Alton (creator35lwb)

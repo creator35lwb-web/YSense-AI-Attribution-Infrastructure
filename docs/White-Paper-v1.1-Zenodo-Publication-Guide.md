@@ -1,4 +1,4 @@
-# White Paper v1.1 Zenodo Publication Guide
+# Zenodo Publication Guide: YSenseAI™ White Paper v1.1
 
 **YSenseAI™ | 慧觉™ - Publication Instructions**
 
@@ -8,27 +8,68 @@
 
 ---
 
-## 📋 PUBLICATION CHECKLIST
+## 📋 PUBLICATION OVERVIEW
 
-### **Files to Upload**
+### **Current Zenodo Status**
 
-✅ **Primary Document**: `YSense-AI-White-Paper-v1.1.pdf` (Professional PDF version)  
-✅ **Source Document**: `YSense-AI-White-Paper-v1.1.md` (Markdown source for transparency)  
-✅ **Supporting Documentation**: Link to GitHub repository for full context
+**YSenseAI™ Attribution Infrastructure** has published codebase versions to Zenodo:
+
+**Latest Version**: v4.5.0-beta (November 27, 2025)
+- DOI: 10.5281/zenodo.17737995
+- Type: Software/Codebase release
+- Title: "YSenseAI v4.5-Beta: Ethical AI Training Data Platform with Story-First UX"
+
+**Concept DOI** (all versions): 10.5281/zenodo.17072167
+
+**Previous Versions**:
+- v0.3.1-backend: 10.5281/zenodo.17576191 (Nov 10, 2025)
+- v0.3.0-backend: 10.5281/zenodo.17569312 (Nov 10, 2025)
+- v0.2.0-zenodo: 10.5281/zenodo.17072168 (Sep 7, 2025)
+
+### **Publication Strategy for White Paper v1.1**
+
+**RECOMMENDED**: Upload White Paper v1.1 as **NEW VERSION** to existing Zenodo record
+
+**Why**:
+- Maintains continuity with existing YSenseAI™ publication history
+- Zenodo automatically creates version-specific DOI
+- Concept DOI (10.5281/zenodo.17072167) always resolves to latest version
+- Keeps all YSenseAI™ materials (codebase + documentation) under one DOI family
 
 ---
 
-## 🎯 ZENODO METADATA
+## 🎯 ZENODO UPLOAD INSTRUCTIONS
 
-### **Upload Type**
-- **Type**: Publication
-- **Publication Type**: Technical Report / White Paper
+### **Step 1: Access Existing Record**
 
-### **Basic Information**
+1. Go to https://zenodo.org/records/17737995
+2. Log in to your account (creator35lwb@gmail.com)
+3. Click **"New version"** button (top right, near "Edit" and "Share")
+4. Zenodo will create a draft for the new version
+
+### **Step 2: Upload Files**
+
+**Files to Upload**:
+
+✅ **Primary Document**: `YSense-AI-White-Paper-v1.1.pdf` (Professional PDF version)  
+✅ **Source Document**: `YSense-AI-White-Paper-v1.1.md` (Markdown source for transparency)
+
+**File Upload Process**:
+1. In the draft, scroll to "Files" section
+2. Click "Choose files" or drag-and-drop
+3. Upload both PDF and Markdown files
+4. Verify file sizes and names are correct
+5. **IMPORTANT**: Remove the old codebase ZIP file if you want this version to be documentation-only, OR keep it if you want to include both codebase and white paper
+
+**Recommendation**: For White Paper v1.1, focus on documentation files only. The codebase is already in v4.5-Beta.
+
+### **Step 3: Update Metadata**
+
+**Basic Information**:
 
 **Title**:
 ```
-YSense™ | 慧觉™ AI Attribution Infrastructure White Paper v1.1: Building the World's First Library of Human Wisdom for Ethical AI Development
+YSenseAI™ | 慧觉™ White Paper v1.1: Building the World's First Library of Human Wisdom for Ethical AI Development
 ```
 
 **Authors**:
@@ -51,319 +92,247 @@ Team YSenseAI AI Council (Contributing)
 
 **Description**:
 ```
-YSense™ represents the world's first comprehensive solution to the $100 billion AI attribution infrastructure crisis. This white paper v1.1 (November 2025 update) presents the complete framework including Z-Protocol v2.1 Honest Technical Reality Framework for ethical consent management, Five-Layer Perception Toolkit™ for capturing experiential wisdom, and Genesis Master Prompt v16.1 AI Council structure for systematic human-AI collaboration.
+YSenseAI™ | 慧觉™ White Paper v1.1: Comprehensive documentation of the world's first library of human wisdom for ethical AI development.
 
-Version 1.1 updates include:
-- Z-Protocol v2.1: Honest acknowledgment of data withdrawal technical limitations with prevention-first architecture
-- AI Council Structure: Formal documentation of six specialized AI agents (Y, X, Z, P, XV, T) orchestrated by human leadership
-- Platform v4.5-Beta: Current production readiness status and implementation details
-- Contact Information: Updated with ysenseai.org website and current project details
+This white paper documents:
+- Z-Protocol v2.1: Honest Technical Reality Framework for data withdrawal rights
+- AI Council Structure: Y, X, Z, P, XV, T agents under human orchestration (Genesis Master Prompt v16.1)
+- Five-Layer Perception Toolkit™: Systematic framework for capturing experiential wisdom
+- Platform v4.5-Beta: Production-ready implementation status
+- Ethical AI Training: Consent-first, attribution-focused, culturally sensitive approach
 
-The framework addresses the attribution crisis through defensive publication protection, establishing unbreachable prior art for ethical AI attribution methodology. Platform v4.5-Beta achieves production readiness with capability to support thousands of concurrent users while maintaining ethical data protection standards.
+Version 1.1 Updates (November 29, 2025):
+- Z-Protocol v2.1: Honest acknowledgment of technical limitations in data withdrawal
+- AI Council complete structure documented
+- Platform status updated to v4.5-Beta
+- Professional academic formatting
+- Comprehensive references and citations
 
-Target market includes academic institutions (25,000+ universities worldwide), enterprise organizations facing AI ethics compliance requirements, and government agencies requiring attribution solutions for public sector AI deployment. Conservative revenue projections target €15,000 in Q1 2026 through academic partnerships, scaling to €500,000 annually by 2027.
+This defensive publication establishes prior art for YSenseAI™ methodology and protects the research community's freedom to operate.
 
-This white paper supersedes v1.0 (DOI: 10.5281/zenodo.17072168) published September 27, 2025, incorporating critical updates based on framework evolution and real-world deployment considerations.
+Related Projects:
+- YSenseAI™ | 慧觉™: The vision and framework (this white paper)
+- VerifiMind PEAS: The implementation engine (DOI: 10.5281/zenodo.17645665)
+
+Version History:
+- v1.1 (November 29, 2025): Z-Protocol v2.1, AI Council, v4.5-Beta status
+- v1.0 (Integrated in platform releases): Initial framework documentation
 ```
 
-**Version**: `1.1`
+**Version**:
+```
+1.1
+```
 
-**Publication Date**: `2025-11-29`
+**Publication Date**:
+```
+2025-11-29
+```
 
-**Language**: `English`
-
-### **License**
-
-**License**: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
-
-**License URL**: https://creativecommons.org/licenses/by-nc-sa/4.0/
-
-**Note**: The white paper itself is CC BY-NC-SA 4.0. The underlying software implementation (when released) will be Apache License 2.0 as stated in the document.
-
-### **Keywords**
-
+**Keywords**:
 ```
 AI attribution
 ethical AI
-consent management
+human wisdom
 Z-Protocol
-human wisdom preservation
-AI training data
-experiential data
 Five-Layer Perception Toolkit
-human-AI collaboration
-Orchestrator Paradox
-cultural preservation
-data sovereignty
-Malaysia AI
-academic AI ethics
-AI governance
-knowledge attribution
-value distribution
 AI Council
-Genesis Master Prompt
-data withdrawal rights
+multi-model validation
+consent management
+cultural preservation
+YSenseAI
+defensive publication
 ```
 
-### **Related Identifiers**
+**License**:
+```
+Creative Commons Attribution Non Commercial Share Alike 4.0 International (CC BY-NC-SA 4.0)
+```
 
-**Previous Version**:
-- **Relation**: Is new version of
-- **Identifier**: https://doi.org/10.5281/zenodo.17072168
-- **Resource Type**: Publication / White Paper
+**Upload Type**:
+- Type: Publication
+- Publication Type: Technical Report / White Paper
 
-**GitHub Repository**:
-- **Relation**: Is supplement to
-- **Identifier**: https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure
-- **Resource Type**: Software / Code Repository
+**Access Right**:
+- Open Access
 
-**Project Website**:
-- **Relation**: Is documented by
-- **Identifier**: https://ysenseai.org
-- **Resource Type**: Website
+**Related Identifiers**:
+```
+- Is supplement to: https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure (GitHub Repository)
+- Is related to: 10.5281/zenodo.17645665 (VerifiMind PEAS Genesis Methodology)
+- Is related to: 10.5281/zenodo.17737995 (YSenseAI v4.5-Beta Platform)
+- Is version of: 10.5281/zenodo.17072167 (YSenseAI Concept DOI)
+```
 
-### **Subjects / Communities**
-
-Suggested Zenodo communities to submit to (if available):
-
+**Communities** (if available):
+```
 - Artificial Intelligence
-- Ethics in AI
-- Open Science
-- Digital Humanities
-- Cultural Heritage
-- Knowledge Management
-- Academic Research Infrastructure
-
-### **Funding** (if applicable)
-
-Currently self-funded. Leave blank unless you have received grants or funding to acknowledge.
-
-### **References**
-
-Key references cited in white paper (optional to include in Zenodo metadata):
-
+- Ethical AI
+- Human-AI Collaboration
+- Cultural Preservation
 ```
-Anthropic. (2024). Prompt Engineering Guidelines.
-Hassabis, D. (2025). "Learning How to Learn: The Next Frontier in AI." DeepMind Research Quarterly, 14(2), 45-62.
-MIT. (2025). "The EPOCH of AI: Understanding Experiential Data Requirements." MIT Technology Review.
-Sinek, S. (2009). Start with Why: How Great Leaders Inspire Everyone to Take Action. Portfolio.
+
+**Funding** (if applicable):
+```
+Self-funded research project
+```
+
+**References**:
+```
+See References section in white paper for complete academic citations
 ```
 
 ---
 
-## 📝 PUBLICATION NOTES
+## 📝 CHANGELOG (Platform Releases → White Paper v1.1)
 
-### **Version History Note**
+**Major Milestone**:
 
-When publishing v1.1, Zenodo will automatically link it to v1.0 (DOI: 10.5281/zenodo.17072168) if you specify "Is new version of" relationship. This creates a version chain where readers can access both versions while v1.1 becomes the recommended current version.
+This is the **first dedicated white paper publication** for YSenseAI™. Previous Zenodo releases focused on platform codebase. This release provides comprehensive documentation of the methodology, framework, and ethical principles.
 
-### **DOI Reservation**
+**White Paper v1.1 Content**:
 
-Zenodo will assign a new DOI for v1.1 upon publication. The DOI format will be:
-```
-10.5281/zenodo.[NEW_NUMBER]
-```
+1. **Z-Protocol v2.1 Honest Technical Reality Framework**
+   - Transparent acknowledgment of data withdrawal technical limitations
+   - Prevention-first architecture explanation
+   - Competitive advantage through radical transparency
 
-After publication, update the following locations with the new DOI:
+2. **AI Council Structure (Genesis Master Prompt v16.1)**
+   - Complete documentation of Y, X, Z, P, XV, T agents
+   - Human orchestrator at center
+   - Systematic multi-model validation process
 
-1. **White Paper v1.1 itself** (first page metadata)
-2. **GitHub README.md** (citation section)
-3. **ysenseai.org website** (download page)
-4. **Genesis Master Prompt v16.1** (references section)
-5. **Any academic partnership materials** referencing the white paper
+3. **Five-Layer Perception Toolkit™**
+   - Methodology for capturing experiential wisdom
+   - Beyond facts: emotions, context, cultural nuance
+   - Systematic interview and documentation framework
 
-### **Citation Format**
+4. **Platform v4.5-Beta Status**
+   - Production readiness assessment
+   - Technical architecture overview
+   - Implementation roadmap
 
-After Zenodo publication, the recommended citation will be:
+5. **Ethical Framework**
+   - Consent-first approach
+   - Attribution and fair compensation
+   - Cultural sensitivity and preservation
 
-**APA Format**:
-```
-Lee, A. W. B. (2025). YSense™ | 慧觉™ AI Attribution Infrastructure White Paper v1.1: Building the World's First Library of Human Wisdom for Ethical AI Development (Version 1.1). Zenodo. https://doi.org/10.5281/zenodo.[NEW_DOI]
-```
-
-**BibTeX Format**:
-```bibtex
-@techreport{lee2025ysenseai_v1.1,
-  title={YSense™ | 慧觉™ AI Attribution Infrastructure White Paper v1.1: Building the World's First Library of Human Wisdom for Ethical AI Development},
-  author={Lee, Alton Wei Bin},
-  year={2025},
-  month={11},
-  version={1.1},
-  institution={YSenseAI},
-  doi={10.5281/zenodo.[NEW_DOI]},
-  url={https://doi.org/10.5281/zenodo.[NEW_DOI]}
-}
-```
+6. **Professional Academic Formatting**
+   - Comprehensive references
+   - Clear structure and flow
+   - Publication-ready quality
 
 ---
 
-## 🚀 PUBLICATION WORKFLOW
+## ✅ PRE-PUBLICATION CHECKLIST
 
-### **Step 1: Prepare Files**
+Before publishing to Zenodo, verify:
 
-✅ **COMPLETE** - Files ready in `/home/ubuntu/ysense-attribution-repo/docs/`:
-- `YSense-AI-White-Paper-v1.1.md` (Markdown source)
-- `YSense-AI-White-Paper-v1.1.pdf` (Professional PDF)
-
-### **Step 2: Create Zenodo Upload**
-
-1. Go to https://zenodo.org
-2. Log in with your account (or create account if needed)
-3. Click "New Upload" button
-4. Upload both PDF and Markdown files
-
-### **Step 3: Fill Metadata**
-
-Use the metadata template provided above to complete all fields in Zenodo upload form.
-
-**Critical Fields**:
-- Title (exact as specified above)
-- Authors (Alton Lee Wei Bin)
-- Description (full description provided above)
-- License (CC BY-NC-SA 4.0)
-- Keywords (all keywords listed above)
-- Related Identifiers (link to v1.0 DOI and GitHub)
-
-### **Step 4: Review and Publish**
-
-1. Review all metadata for accuracy
-2. Preview the upload page
-3. Click "Publish" button
-4. **IMPORTANT**: Copy the new DOI immediately after publication
-
-### **Step 5: Update Documentation**
-
-After receiving new DOI, update:
-
-1. White Paper v1.1 PDF first page (regenerate PDF with new DOI)
-2. GitHub README.md citation section
-3. ysenseai.org website download page
-4. Genesis Master Prompt v16.1 references
-5. Any academic partnership materials
+- [ ] Both files uploaded correctly (PDF + Markdown)
+- [ ] Title includes "YSenseAI™ | 慧觉™" correct branding
+- [ ] Version is "1.1"
+- [ ] Author information is accurate
+- [ ] Description includes version changelog
+- [ ] Keywords are comprehensive
+- [ ] License is CC BY-NC-SA 4.0
+- [ ] Related identifiers link to VerifiMind PEAS and platform v4.5-Beta
+- [ ] Publication date is 2025-11-29
+- [ ] Access is set to "Open Access"
+- [ ] Upload type is "Publication" → "Technical Report"
+- [ ] Old codebase ZIP removed (if you want documentation-only version)
 
 ---
 
-## 📊 POST-PUBLICATION PROMOTION
+## 🎯 POST-PUBLICATION ACTIONS
 
-### **Announcement Channels**
+After Zenodo publication is complete:
 
-After Zenodo publication, announce White Paper v1.1 through:
+1. **Note the New Version-Specific DOI**
+   - Zenodo will assign a new DOI for v1.1 (e.g., 10.5281/zenodo.XXXXXXX)
+   - The concept DOI (10.5281/zenodo.17072167) will automatically point to this latest version
 
-**GitHub**:
-- Create GitHub Release for v1.1
-- Update README.md with prominent link to Zenodo DOI
-- Pin announcement in repository
+2. **Update GitHub README**
+   - Add new version-specific DOI badge
+   - Update citation information
+   - Link to Zenodo record
 
-**ysenseai.org Website**:
-- Feature White Paper v1.1 prominently on homepage
-- Create dedicated download page with both PDF and Markdown versions
-- Include citation information and DOI
+3. **Update Cross-References**
+   - Update Genesis Methodology (VerifiMind PEAS) to reference YSenseAI™ v1.1 DOI
+   - Update Genesis Master Prompt v16.1 with new DOI
+   - Update project documentation
 
-**Academic Networks** (when ready):
-- ResearchGate (if you have account)
-- Academia.edu (if you have account)
-- LinkedIn (professional announcement)
-- Relevant AI ethics and attribution research communities
+4. **Update ysenseai.org Website**
+   - Feature White Paper v1.1 prominently
+   - Add download link with DOI
+   - Update "Publications" section
 
-**Social Media** (optional):
-- Twitter/X announcement with key highlights
-- LinkedIn professional post
-- Relevant AI/ML community forums
-
-### **Key Messages for Announcement**
-
-**Headline**: "YSenseAI White Paper v1.1 Released: Honest Framework for AI Attribution and Data Withdrawal Rights"
-
-**Key Points**:
-- First comprehensive AI attribution infrastructure addressing $100 billion crisis
-- Z-Protocol v2.1: Industry-leading transparency about data withdrawal technical reality
-- AI Council structure: Systematic human-AI collaboration methodology
-- Platform v4.5-Beta: Production-ready ethical AI infrastructure
-- Open for academic partnerships and collaboration
-
-**Call to Action**:
-- Download white paper from Zenodo or GitHub
-- Contact for academic partnership discussions
-- Contribute to open-source development
-- Join the movement for ethical AI attribution
+5. **Announcement**
+   - Share with academic partners
+   - Announce on relevant platforms (if desired)
+   - Invite feedback and collaboration
 
 ---
 
-## 🎯 SUCCESS METRICS
+## 📊 COMPARISON: CODEBASE vs WHITE PAPER
 
-Track the following metrics after publication:
+| **Aspect** | **Platform v4.5-Beta** | **White Paper v1.1** |
+|------------|------------------------|----------------------|
+| **Type** | Software/Codebase | Publication/Documentation |
+| **DOI** | 10.5281/zenodo.17737995 | To be assigned |
+| **Date** | November 27, 2025 | November 29, 2025 |
+| **Content** | Python code, APIs, infrastructure | Methodology, framework, ethics |
+| **Size** | ~64 MB (ZIP) | ~500 KB (PDF + MD) |
+| **Audience** | Developers, engineers | Researchers, academics, partners |
+| **Purpose** | Implementation | Documentation and defensive publication |
+| **License** | Apache 2.0 (code) | CC BY-NC-SA 4.0 (documentation) |
 
-**Zenodo Metrics**:
-- Downloads count
-- Views count
-- Citations (via Zenodo tracking)
-
-**GitHub Metrics**:
-- Repository stars
-- Forks
-- Issues/discussions related to white paper
-
-**Academic Engagement**:
-- Partnership inquiries
-- Research citations
-- Conference presentations referencing white paper
-
-**Community Building**:
-- Contributors to open-source components
-- Implementation partner applications
-- Media coverage or blog posts
+**Both are important**: Platform v4.5-Beta shows "how it works", White Paper v1.1 explains "why it matters".
 
 ---
 
-## 💡 TIPS FOR MAXIMUM IMPACT
+## 🔗 IMPORTANT LINKS
 
-**Professional Presentation**: The white paper is professionally formatted and comprehensive. Let the quality speak for itself rather than over-hyping.
+**GitHub Repository**:  
+https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure
 
-**Honest Positioning**: Emphasize the Z-Protocol v2.1 honest technical reality framework as competitive advantage through transparency. This differentiates YSenseAI from competitors who overpromise.
+**White Paper Files**:
+- Markdown: `/docs/YSense-AI-White-Paper-v1.1.md`
+- PDF: `/docs/YSense-AI-White-Paper-v1.1.pdf`
 
-**Academic Focus**: Target academic institutions first as they value intellectual honesty and rigorous methodology. The white paper's academic tone and comprehensive references support this positioning.
+**Current Zenodo Records**:
+- Platform v4.5-Beta: https://zenodo.org/records/17737995
+- Concept DOI (all versions): https://zenodo.org/records/17072167
 
-**Open Collaboration**: Emphasize openness to collaboration, partnerships, and community contributions. The defensive publication protection and Apache 2.0 licensing demonstrate commitment to open ecosystem.
+**Related Publications**:
+- Genesis Methodology (VerifiMind PEAS): DOI 10.5281/zenodo.17645665
 
-**Cultural Bridge**: Highlight the East-West wisdom bridge mission and Malaysian foundation as unique positioning that brings diverse perspectives to AI ethics.
-
----
-
-## 📞 NEXT STEPS AFTER PUBLICATION
-
-**Immediate (Week 1)**:
-1. Publish to Zenodo and obtain DOI
-2. Update all documentation with new DOI
-3. Create GitHub Release
-4. Announce on ysenseai.org website
-
-**Short-term (Weeks 2-4)**:
-1. Reach out to Malaysian universities for partnership discussions
-2. Submit to relevant academic conferences or workshops
-3. Engage with AI ethics research communities
-4. Prepare presentation materials based on white paper
-
-**Medium-term (Months 2-3)**:
-1. Publish academic paper based on white paper methodology
-2. Develop case studies from early partnerships
-3. Create video presentation or webinar
-4. Build community around open-source components
+**Contact**:
+- Email: creator35lwb@gmail.com
+- Website: https://ysenseai.org
 
 ---
 
-## 🎊 CONCLUSION
+## 📞 SUPPORT
 
-White Paper v1.1 represents a major milestone for YSenseAI—comprehensive documentation of the framework with honest acknowledgment of technical realities and clear articulation of competitive advantages.
+**Questions about Zenodo publication?**
 
-The professional formatting, thorough content, and transparent positioning create strong foundation for academic partnerships and community building.
+- Zenodo Help: https://help.zenodo.org
+- Zenodo Support: info@zenodo.org
+- Community Forum: https://github.com/zenodo/zenodo/discussions
 
-**Ready for Zenodo publication and global distribution!** 🚀
+**Questions about YSenseAI™?**
+
+- GitHub Issues: https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure/issues
+- Email: creator35lwb@gmail.com
 
 ---
 
-**T - Chief Technology Officer**  
-**YSenseAI™ | 慧觉™**
+**© 2025 Alton Lee Wei Bin. All rights reserved.**
 
-**Technical Leadership. Ethical Engineering. Production Excellence.**
+**Defensive Publication**: Concept DOI 10.5281/zenodo.17072167 + version-specific DOI for v1.1
 
-© 2025 YSenseAI™ | 慧觉™ (Alton)
+**License**: CC BY-NC-SA 4.0
+
+---
+
+**END OF PUBLICATION GUIDE**

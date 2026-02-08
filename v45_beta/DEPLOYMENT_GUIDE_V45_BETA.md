@@ -116,7 +116,7 @@ v45_beta/
 Create `.env` file (optional, config.py has defaults):
 ```bash
 # API Keys
-QWEN_API_KEY=sk-9f933e251786491bba21a0ddb3c417d1
+QWEN_API_KEY=YOUR_QWEN_API_KEY_HERE
 QWEN_MODEL=qwen-plus
 QWEN_BASE_URL=https://dashscope-intl.aliyuncs.com/compatible-mode/v1
 

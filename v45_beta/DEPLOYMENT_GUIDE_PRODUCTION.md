@@ -35,7 +35,7 @@ ANTHROPIC_API_KEY=sk-ant-api03-...
 ANTHROPIC_MODEL=claude-3-haiku-20240307
 
 # Alibaba Cloud (Qwen)
-QWEN_API_KEY=sk-9f933e251786491bba21a0ddb3c417d1
+QWEN_API_KEY=YOUR_QWEN_API_KEY_HERE
 QWEN_MODEL=qwen-plus
 QWEN_BASE_URL=https://dashscope-intl.aliyuncs.com/compatible-mode/v1
 ```

@@ -5,6 +5,8 @@
 [![Z-Protocol v2.0](https://img.shields.io/badge/Z--Protocol-v2.0-blue.svg)](https://doi.org/10.5281/zenodo.17072168)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![Status: Beta](https://img.shields.io/badge/status-beta-orange.svg)]()
+[![VerifiMind PEAS v0.5.0](https://img.shields.io/badge/VerifiMind_PEAS-v0.5.0_Foundation-00bcd4.svg)](https://verifimind.io)
+[![HuggingFace Demo](https://img.shields.io/badge/🤗_HuggingFace-Demo-yellow.svg)](https://huggingface.co/spaces/YSenseAI/wisdom-canvas)
 
 **Build your personal wisdom library while contributing to ethical AI development.**
 
@@ -220,7 +222,7 @@ YSenseAI is built on the **Z-Protocol v2.0**, a comprehensive ethical framework 
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/YSense-AI-Attribution-Infrastructure.git
+git clone https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure.git
 cd YSense-AI-Attribution-Infrastructure
 
 # Create virtual environment
@@ -406,7 +408,7 @@ Study ethical AI data practices:
 
 ## 🗺️ Roadmap
 
-### v4.5-Beta (Current - November 2025)
+### v4.5-Beta (November 2025)
 
 - [x] Story-first AI-native UX
 - [x] Collaborative 3-word distillation
@@ -415,8 +417,22 @@ Study ethical AI data practices:
 - [x] Attribution engine (SHA-256 + DID)
 - [x] Quality metrics (6 signals)
 - [x] Export pipeline (JSONL, Alpaca, ShareGPT)
+- [x] HuggingFace Wisdom Canvas demo deployed
 
-### v5.0 (Q1 2026)
+### VerifiMind PEAS v0.5.0 Foundation (Current - March 2026)
+
+The validation backbone for YSenseAI — [VerifiMind PEAS](https://github.com/creator35lwb-web/VerifiMind-PEAS) reached its **Foundation milestone**:
+
+- [x] SessionContext tracing for per-run debugging
+- [x] Error handling v2 with structured responses
+- [x] Health endpoint v2 with richer diagnostics
+- [x] BYOK hardening (retry logic, graceful degradation)
+- [x] 205 automated tests, 55.1% coverage
+- [x] Z-Protocol Approved (9.2/10)
+- [x] Fully self-hosted on GCP Cloud Run
+- [x] Landing page live at [verifimind.io](https://verifimind.io)
+
+### v5.0 (Q2-Q3 2026)
 
 - [ ] Blockchain integration (Ethereum/Polygon)
 - [ ] Smart contracts for revenue distribution
@@ -425,7 +441,7 @@ Study ethical AI data practices:
 - [ ] Multi-language support (10+ languages)
 - [ ] Community features (sharing, comments)
 
-### v6.0 (Q2 2026)
+### v6.0 (Q4 2026)
 
 - [ ] VerifiMind-PEAS API (attribution as a service)
 - [ ] Platform partnerships (integrate with other platforms)
@@ -458,15 +474,14 @@ We welcome contributions from developers, researchers, and community members!
 ### Getting Started
 
 1. Read [CONTRIBUTING.md](CONTRIBUTING.md)
-2. Check [open issues](https://github.com/YOUR_USERNAME/YSense-AI-Attribution-Infrastructure/issues)
-3. Join our [Discord](https://discord.gg/ysenseai) (coming soon)
+23. Check [open issues](https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure/issues)3. Join our [Discord](https://discord.gg/ysenseai) (coming soon)
 4. Fork the repository and submit a pull request
 
 ### Development Setup
 
 ```bash
 # Clone your fork
-git clone https://github.com/YOUR_USERNAME/YSense-AI-Attribution-Infrastructure.git
+git clone https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure.git
 cd YSense-AI-Attribution-Infrastructure
 
 # Create feature branch
@@ -495,7 +510,7 @@ If you use YSenseAI in your research, please cite:
   version = {4.5-beta},
   year = {2025},
   month = {11},
-  url = {https://github.com/YOUR_USERNAME/YSense-AI-Attribution-Infrastructure},
+  url = {https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure},
   doi = {10.5281/zenodo.17737995}
 }
 
@@ -560,9 +575,16 @@ See [THIRD_PARTY_LICENSES.md](docs/THIRD_PARTY_LICENSES.md) for complete list.
 
 ### Core Team
 
-- **Founder**: Alton (creator35lwb)
+- **Founder & Human Orchestrator**: Alton (creator35lwb)
 - **Z-Protocol Design**: Community-driven ethical framework
 - **Platform Development**: Open-source contributors
+
+### FLYWHEEL TEAM (Multi-Agent Development)
+
+- **CSO R** (Manus AI): Strategy, public materials, landing page
+- **CTO RNA** (Claude Code): Implementation, testing, deployment
+- **COO AY** (Antigravity): Metrics validation, operational reports
+- **L** (Human Orchestrator): Direction, synthesis, final decisions
 
 ### AI Partners
 
@@ -585,11 +607,13 @@ See [THIRD_PARTY_LICENSES.md](docs/THIRD_PARTY_LICENSES.md) for complete list.
 
 ## 📞 Contact
 
-- **Website**: https://ysenseai.org (v4.1 prototype live)
+- **Website**: https://ysenseai.org
+- **VerifiMind PEAS**: https://verifimind.io
+- **HuggingFace**: https://huggingface.co/spaces/YSenseAI/wisdom-canvas
 - **Email**: alton@ysenseai.org or creator35lwb@gmail.com
 - **Privacy**: alton@ysenseai.org or creator35lwb@gmail.com
 - **Legal**: alton@ysenseai.org or creator35lwb@gmail.com
-- **GitHub**: https://github.com/YOUR_USERNAME/YSense-AI-Attribution-Infrastructure
+- **GitHub**: https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure
 - **Discord**: Not yet available (planned for v5.0)
 - **Twitter**: https://x.com/creator35lwb
 
@@ -599,10 +623,10 @@ See [THIRD_PARTY_LICENSES.md](docs/THIRD_PARTY_LICENSES.md) for complete list.
 
 If you find YSenseAI useful, please star the repository to show your support!
 
-[![Star History Chart](https://api.star-history.com/svg?repos=YOUR_USERNAME/YSense-AI-Attribution-Infrastructure&type=Date)](https://star-history.com/#YOUR_USERNAME/YSense-AI-Attribution-Infrastructure&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=creator35lwb-web/YSense-AI-Attribution-Infrastructure&type=Date)](https://star-history.com/#creator35lwb-web/YSense-AI-Attribution-Infrastructure&Date)
 
 ---
 
 **Built with ❤️ for ethical AI development**
 
-© 2025 Alton (creator35lwb) | [MIT License](LICENSE) | [Z-Protocol v2.0](https://doi.org/10.5281/zenodo.17072168)
+© 2025-2026 Alton (creator35lwb) | [MIT License](LICENSE) | [Z-Protocol v2.0](https://doi.org/10.5281/zenodo.17072168) | [VerifiMind PEAS](https://verifimind.io)

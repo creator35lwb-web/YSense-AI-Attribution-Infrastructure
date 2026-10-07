@@ -1,0 +1,21 @@
+// Cloudflare Workers config for https://ysenseai.org
+// Serves the static files in public/ (no server code, no build step).
+//
+// Cloudflare Workers Builds (Git-connected) settings for this repository:
+//   Root directory (Path): website
+//   Build command:         (leave empty)
+//   Deploy command:        npx wrangler deploy
+// Production branch: main. Other branches get preview URLs.
+{
+  "name": "ysenseai-landing",
+  "compatibility_date": "2026-09-01",
+  "assets": {
+    "directory": "./public",
+    // Unknown paths get public/404.html with HTTP status 404.
+    "not_found_handling": "404-page",
+    // Serve /llms.txt, /robots.txt etc. exactly; redirect /index.html to /.
+    "html_handling": "auto-trailing-slash"
+  },
+  // Required by `wrangler preview`; empty means previews use the settings above.
+  "previews": {}
+}

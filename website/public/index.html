@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YSenseAI™ v4.5-Beta | Ethical AI Training Data Platform</title>
-    <meta name="description" content="Build your personal wisdom library while contributing to ethical AI development. Consent-first, attribution-native platform with Z-Protocol v2.0.">
+    <meta name="description" content="Open-source, consent-first platform for human-written stories and cultural wisdom as AI training and evaluation data. Z-Protocol v2.1, tamper-evident attribution, honest about what is built and what is not.">
     
     <!-- Open Graph -->
     <meta property="og:title" content="YSenseAI™ v4.5-Beta | Ethical AI Training Data Platform">
     <meta property="og:description" content="Build your personal wisdom library while contributing to ethical AI development.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ysenseai.org">
+    <meta property="og:url" content="https://ysenseai.org/">
+    <link rel="canonical" href="https://ysenseai.org/">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
@@ -24,6 +25,8 @@
     
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
+    <!-- Cards fade in on scroll via JavaScript; without it, show everything. -->
+    <noscript><style>.step,.feature-card,.ecosystem-node,.audience-card,.roadmap-item{opacity:1 !important;transform:none !important}</style></noscript>
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
@@ -84,7 +87,7 @@
             <div class="hero-cta">
                 <a href="https://huggingface.co/spaces/YSenseAI/wisdom-canvas" target="_blank" class="btn btn-primary">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                    Try Demo
+                    Try the UX Demo
                 </a>
                 <a href="https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure" target="_blank" class="btn btn-secondary">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
@@ -105,12 +108,12 @@
                     <span class="stat-label">Quality Metrics</span>
                 </div>
                 <div class="stat">
-                    <span class="stat-value">8</span>
-                    <span class="stat-label">Consent Types</span>
+                    <span class="stat-value">2</span>
+                    <span class="stat-label">Published DOIs</span>
                 </div>
                 <div class="stat">
-                    <span class="stat-value">30%</span>
-                    <span class="stat-label">Revenue Share</span>
+                    <span class="stat-value">0</span>
+                    <span class="stat-label">Licensing Deals (yet)</span>
                 </div>
             </div>
         </div>
@@ -157,18 +160,18 @@
             <div class="solution-grid">
                 <div class="solution-card">
                     <div class="solution-icon">🛡️</div>
-                    <h3>Z-Protocol v2.0</h3>
-                    <p>Granular consent management with 8 consent types and full audit trail</p>
+                    <h3>Z-Protocol v2.1</h3>
+                    <p>Tiered consent recorded with the document version, and an honest definition of withdrawal: exclusion from future training, not erasure from already-trained models</p>
                 </div>
                 <div class="solution-card">
                     <div class="solution-icon">🔐</div>
-                    <h3>Cryptographic Attribution</h3>
-                    <p>SHA-256 fingerprinting + DID assignment for every contribution</p>
+                    <h3>Tamper-Evident Attribution</h3>
+                    <p>SHA-256 fingerprint, author identifier and verification on every contribution. Key-based signatures and C2PA manifests are next</p>
                 </div>
                 <div class="solution-card">
                     <div class="solution-icon">💰</div>
                     <h3>Fair Compensation</h3>
-                    <p>15-30% revenue sharing based on content tier and usage</p>
+                    <p>15-30% of licensing revenue by content tier, written into the terms before any deal exists. No deal exists yet, and we say so</p>
                 </div>
                 <div class="solution-card">
                     <div class="solution-icon">🌍</div>
@@ -220,7 +223,7 @@
                     <div class="step-number">5</div>
                     <div class="step-icon">💎</div>
                     <h3>Earn</h3>
-                    <p>Receive 15-30% revenue share when AI labs use your attributed training data.</p>
+                    <p>If an AI lab licenses the dataset, your tier's revenue share applies. Today that is a promise in the terms, not income.</p>
                 </div>
             </div>
         </div>
@@ -252,18 +255,18 @@
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🛡️</div>
-                    <h3>Z-Protocol v2.0</h3>
-                    <p>Granular consent management with 8 types and complete audit trail.</p>
+                    <h3>Z-Protocol v2.1</h3>
+                    <p>Tiered consent with an append-only audit trail, self-service deletion, and plain language about what withdrawal can and cannot do.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🔐</div>
                     <h3>Attribution Engine</h3>
-                    <p>Cryptographic signing with SHA-256 fingerprinting and DID assignment.</p>
+                    <p>SHA-256 fingerprint, author identifier and tamper check on every asset. Key-based signing (did:key) and C2PA manifests are planned.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">📊</div>
                     <h3>Quality Metrics</h3>
-                    <p>6 training optimization signals ensure high-quality AI training data.</p>
+                    <p>Six heuristic signals give writers feedback today. A rubric-based, human-checked grader is planned.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">📦</div>
@@ -273,7 +276,7 @@
                 <div class="feature-card">
                     <div class="feature-icon">💰</div>
                     <h3>Revenue Sharing</h3>
-                    <p>Earn 15-30% revenue share based on content tier when AI labs use your data.</p>
+                    <p>Tier-based share of licensing revenue, visible in your library. Nothing is paid out until a licensing deal exists.</p>
                 </div>
             </div>
         </div>
@@ -285,7 +288,7 @@
             <div class="section-header">
                 <span class="section-badge">Integration</span>
                 <h2 class="section-title">Part of the <span class="gradient-text">Ethical AI Ecosystem</span></h2>
-                <p class="section-description">YSenseAI works seamlessly with GodelAI and VerifiMind-PEAS</p>
+                <p class="section-description">YSenseAI is designed to work with GodelAI and VerifiMind-PEAS</p>
             </div>
             <div class="ecosystem-diagram">
                 <div class="ecosystem-node ecosystem-node-ysense">
@@ -345,15 +348,15 @@
                         <li>Build your personal wisdom library</li>
                         <li>Discover insights through AI analysis</li>
                         <li>Control how your data is used</li>
-                        <li>Earn from AI training contributions</li>
+                        <li>Keep your library in open formats (JSON, Markdown, CSV)</li>
                     </ul>
-                    <a href="#" class="audience-cta">Start Writing →</a>
+                    <a href="https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure#-quick-start" class="audience-cta">Run the beta locally →</a>
                 </div>
                 <div class="audience-card">
                     <div class="audience-icon">👩‍💻</div>
                     <h3>For Developers</h3>
                     <ul>
-                        <li>Attribution-native API</li>
+                        <li>Attribution engine and export pipeline (Python)</li>
                         <li>6 quality metrics for optimization</li>
                         <li>Multiple export formats</li>
                         <li>Open source & extensible</li>
@@ -364,14 +367,51 @@
                     <div class="audience-icon">🏢</div>
                     <h3>For AI Labs</h3>
                     <ul>
-                        <li>Legally-safe training data</li>
-                        <li>Cryptographic provenance</li>
+                        <li>Consent recorded per contribution, with the document version</li>
+                        <li>Tamper-evident provenance</li>
                         <li>High-quality, culturally-rich data</li>
                         <li>Z-Protocol v2.0 compliant</li>
                     </ul>
-                    <a href="mailto:contact@ysenseai.org" class="audience-cta">Contact Us →</a>
+                    <a href="mailto:alton@ysenseai.org" class="audience-cta">Contact Us →</a>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Honest Status Section -->
+    <section id="status" class="problem-solution">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">October 2026</span>
+                <h2 class="section-title">Where We Are, <span class="gradient-text">Honestly</span></h2>
+                <p class="section-description">Z-Protocol v2.1 asks us to tell the truth about limitations. This is the current state, not the roadmap.</p>
+            </div>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">✅</div>
+                    <h3>What runs today</h3>
+                    <p>An open-source beta you run on your own machine: story canvas, five-layer extraction, consent records, library, export. One maintainer.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">⚠️</div>
+                    <h3>The demo is a mock-up</h3>
+                    <p>The Hugging Face Wisdom Canvas shows the flow but does not call an AI model. Its layer text and scores are placeholders.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">⚠️</div>
+                    <h3>Attribution is tamper-evident, not signed</h3>
+                    <p>Fingerprints prove integrity. Key-based signatures that prove authorship, and C2PA manifests, are the next engineering step.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">⚠️</div>
+                    <h3>No money has changed hands</h3>
+                    <p>No AI lab has licensed anything yet. The revenue share is a term in the agreement, not a payment history.</p>
+                </div>
+            </div>
+            <p class="section-description" style="text-align:center;margin-top:1.5rem">
+                Full detail: <a href="https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure#%EF%B8%8F-known-limitations-beta">Known Limitations</a> in the README and the
+                <a href="https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure/blob/main/docs/audits/2026-10-07-deep-analysis-and-market-report.md">October 2026 audit and market report</a>.
+            </p>
         </div>
     </section>
 
@@ -397,7 +437,7 @@
                     <div class="roadmap-content">
                         <span class="roadmap-version">v4.5-Beta</span>
                         <h3>Story-First UX</h3>
-                        <p>5-layer perception analysis, collaborative distillation, quality metrics, Z-Protocol v2.0</p>
+                        <p>5-layer perception analysis, collaborative distillation, quality metrics, Z-Protocol v2.1, October 2026 audit and fixes</p>
                         <span class="roadmap-status">🚀 Current</span>
                     </div>
                 </div>
@@ -405,18 +445,18 @@
                     <div class="roadmap-marker"></div>
                     <div class="roadmap-content">
                         <span class="roadmap-version">v5.0</span>
-                        <h3>Production</h3>
-                        <p>Marketplace integration, payment processing, enterprise API, mobile apps</p>
-                        <span class="roadmap-status">🔜 Q2 2026</span>
+                        <h3>Dataset v0.1</h3>
+                        <p>500 to 1,000 consented, signed stories with at least 40% Bahasa Melayu or Manglish, a Croissant dataset card on Hugging Face, and an evaluation set derived from it</p>
+                        <span class="roadmap-status">🎯 Next: target Q1 2027</span>
                     </div>
                 </div>
                 <div class="roadmap-item roadmap-future">
                     <div class="roadmap-marker"></div>
                     <div class="roadmap-content">
                         <span class="roadmap-version">v6.0</span>
-                        <h3>Decentralized</h3>
-                        <p>Blockchain attribution, decentralized identity, cross-platform federation</p>
-                        <span class="roadmap-status">📋 Q4 2026</span>
+                        <h3>Attribution as a Service</h3>
+                        <p>MCP server, key-based signatures (did:key), C2PA manifests, machine-readable consent (RSL, CC Signals, EU AI Act training summaries)</p>
+                        <span class="roadmap-status">📋 After the dataset</span>
                     </div>
                 </div>
             </div>
@@ -461,10 +501,10 @@
         <div class="container">
             <div class="cta-content">
                 <h2>Ready to Build Your <span class="gradient-text">Wisdom Library</span>?</h2>
-                <p>Join the movement for ethical AI training data. Your stories matter.</p>
+                <p>Your stories matter, and they should stay yours. Run the beta, read the protocol, or write to us.</p>
                 <div class="cta-buttons">
                     <a href="https://huggingface.co/spaces/YSenseAI/wisdom-canvas" target="_blank" class="btn btn-primary btn-large">
-                        Try v4.5-Beta Demo
+                        Try the UX Demo
                     </a>
                     <a href="https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure" target="_blank" class="btn btn-secondary btn-large">
                         View on GitHub
@@ -497,7 +537,7 @@
                     <h4>Ecosystem</h4>
                     <a href="https://github.com/creator35lwb-web/godelai">GodelAI</a>
                     <a href="https://verifimind.ysenseai.org">VerifiMind-PEAS</a>
-                    <a href="https://doi.org/10.5281/zenodo.17072168">Z-Protocol v2.0</a>
+                    <a href="https://doi.org/10.5281/zenodo.17072168">Z-Protocol</a>
                 </div>
                 <div class="footer-links">
                     <h4>Resources</h4>
@@ -505,10 +545,13 @@
                     <a href="https://doi.org/10.5281/zenodo.17737995">White Paper</a>
                     <a href="https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure/blob/main/CONTRIBUTING.md">Contributing</a>
                     <a href="https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure/blob/main/LICENSE">License</a>
+                    <a href="https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure/blob/main/v45_beta/legal/privacy_policy.md">Privacy Policy</a>
+                    <a href="https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure/blob/main/v45_beta/legal/terms_of_service.md">Terms of Service</a>
+                    <a href="/llms.txt">llms.txt</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2025 YSenseAI™. MIT License. Built with ❤️ by the Flywheel Team.</p>
+                <p>© 2025–2026 YSenseAI™. Code MIT, Z-Protocol CC BY-SA 4.0. Built in Teluk Intan, Malaysia by Alton with the FLYWHEEL TEAM.</p>
                 <p>Part of the <a href="https://github.com/creator35lwb-web/godelai">GodelAI</a> Ethical AI Ecosystem.</p>
             </div>
         </div>
@@ -536,8 +579,10 @@
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const target = document.querySelector(href);
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }

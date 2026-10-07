@@ -343,6 +343,10 @@ Navigate to `http://localhost:8501` and:
 - [Attribution Engine](docs/ATTRIBUTION_ENGINE.md) - Cryptographic provenance
 - [Export Formats](docs/EXPORT_FORMATS.md) - JSONL, Alpaca, ShareGPT
 
+### Website
+
+- [website/](website/) - source of https://ysenseai.org, a static page served by Cloudflare; see [website/README.md](website/README.md) for how it is published
+
 ---
 
 ## 💡 Use Cases
@@ -443,23 +447,23 @@ The validation backbone for YSenseAI — [VerifiMind PEAS](https://github.com/cr
 - [x] Fully self-hosted on GCP Cloud Run
 - [x] Landing page live at [verifimind.io](https://verifimind.io)
 
-### v5.0 (Q2-Q3 2026)
+### v5.0: Dataset v0.1 (target Q1 2027)
 
-- [ ] Blockchain integration (Ethereum/Polygon)
-- [ ] Smart contracts for revenue distribution
-- [ ] IPFS/Arweave storage
-- [ ] Mobile app (iOS/Android)
-- [ ] Multi-language support (10+ languages)
-- [ ] Community features (sharing, comments)
+The October 2026 audit (`docs/audits/`) replaced the earlier blockchain, mobile and ten-language plan with one artefact the market actually rewards:
 
-### v6.0 (Q4 2026)
+- [ ] 500 to 1,000 consented, signed stories with the five layers and distillation
+- [ ] At least 40% Bahasa Melayu or Manglish
+- [ ] Gated Hugging Face dataset with a Croissant card and responsible-AI fields
+- [ ] Evaluation set derived from it (cultural grounding, emotional range)
+- [ ] Unified tier model across code, legal pack and protocol; revenue share stated in the units peers use
+- [ ] Key-based signatures (did:key) and C2PA manifests; rubric-based quality grading
 
-- [ ] VerifiMind-PEAS API (attribution as a service)
-- [ ] Platform partnerships (integrate with other platforms)
-- [ ] AI lab marketplace (sell datasets directly)
-- [ ] Advanced analytics dashboard
-- [ ] Automated quality validation
-- [ ] Cultural community governance
+### v6.0: Attribution as a Service (after the dataset)
+
+- [ ] MCP server exposing dataset search, attribution verification and consent lookup
+- [ ] Machine-readable consent exports: RSL, CC Signals, IETF Content-Usage, EU AI Act training summaries
+- [ ] Listing on existing data marketplaces with Z-Protocol terms embedded in the licence
+- [ ] Partnerships with Southeast Asian language and culture programmes
 
 ### Long-Term Vision
 

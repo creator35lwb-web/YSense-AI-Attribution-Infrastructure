@@ -89,7 +89,7 @@ YSenseAI provides a **consent-first, attribution-native platform** where:
   - Attention density (3+ details/layer)
   - Compression quality (>80% essence preserved)
 - **🤝 Consent Management**: 8 consent types with audit trail
-- **💾 Database Schema**: SQLite with GDPR-compliant deletion (72 hours)
+- **💾 Database Schema**: SQLite with consent audit trail and self-service account deletion
 - **🔌 AI Integration**: Claude (Anthropic) + Qwen (Alibaba Cloud)
 - **📦 Export Pipeline**: JSONL, Alpaca, ShareGPT, CSV, Dataset Card
 
@@ -153,7 +153,7 @@ YSenseAI provides a **consent-first, attribution-native platform** where:
 
 **Backend**:
 - Python 3.11+
-- SQLite (production-ready with WAL mode)
+- SQLite (single-instance beta; use PostgreSQL or a hosted SQLite for anything multi-instance)
 - Anthropic Claude API (AI analysis)
 - Alibaba Cloud Qwen API (quality metrics)
 
@@ -167,7 +167,7 @@ YSenseAI provides a **consent-first, attribution-native platform** where:
 - Z-Protocol v2.0 framework
 - 5-tier classification system
 - 8 consent types
-- GDPR-compliant (72-hour deletion)
+- GDPR and PDPA aligned (export, deletion, consent history); not yet independently audited
 
 ---
 
@@ -203,7 +203,7 @@ YSenseAI is built on the **Z-Protocol v2.0**, a comprehensive ethical framework 
 - **Fair Compensation**: 15-30% revenue sharing based on tier
 - **Cultural Protection**: Community approval for Cultural/Sacred content
 - **User Sovereignty**: Full control over data (export, edit, delete)
-- **GDPR Compliant**: All user rights implemented
+- **GDPR and PDPA aligned**: export, deletion, consent withdrawal and history are implemented in the beta app; no independent audit has been done yet
 
 **Learn More**: [Z-Protocol v2.0 Complete Framework](https://doi.org/10.5281/zenodo.17072168)
 
@@ -230,29 +230,25 @@ python3.11 -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 # Install dependencies
-pip install -r requirements_production.txt
+pip install -r v45_beta/requirements_production.txt
 
-# Set up environment variables
+# Set up environment variables (optional: the app runs without keys in offline mode)
 cp .env.example .env
 # Edit .env with your API keys (see Configuration section)
 
-# Initialize database
-python -c "from v45_beta.database.schema import Database; Database()"
-
-# Run the application
-streamlit run v45_beta/app_legal_protected.py
+# Run the application (the database is created on first start)
+streamlit run v45_beta/app_final.py
 ```
 
 ### Docker Install
 
 ```bash
-# Build Docker image
-docker build -t ysenseai:v4.5-beta .
+# Build Docker image (the Dockerfile lives in v45_beta/)
+docker build -t ysenseai:v4.5-beta v45_beta
 
-# Run container
-docker run -p 8501:8501 \
+# Run container (listens on 8080)
+docker run -p 8080:8080 \
   -e ANTHROPIC_API_KEY=your_key \
-  -e QWEN_API_KEY=your_key \
   ysenseai:v4.5-beta
 ```
 
@@ -261,10 +257,11 @@ docker run -p 8501:8501 \
 Create a `.env` file with your API keys:
 
 ```env
-# Anthropic Claude API (required)
+# Anthropic Claude API (recommended; without it the app runs in offline mode)
 ANTHROPIC_API_KEY=sk-ant-api03-...
+ANTHROPIC_MODEL=claude-haiku-4-5   # or claude-sonnet-5-5 for better extraction
 
-# Alibaba Cloud Qwen API (required)
+# Alibaba Cloud Qwen API (optional)
 QWEN_API_KEY=sk-...
 QWEN_BASE_URL=https://dashscope-intl.aliyuncs.com/compatible-mode/v1
 
@@ -287,14 +284,14 @@ JWT_SECRET=your_secret_key_here
 
 ```bash
 # Start the application
-streamlit run v45_beta/app_legal_protected.py
+streamlit run v45_beta/app_final.py
 ```
 
 Navigate to `http://localhost:8501` and:
 1. Click "Register" tab
-2. Read and accept Privacy Policy and Terms of Service
-3. Acknowledge beta status
-4. Create your account
+2. Read and accept the Privacy Policy and Terms of Service
+3. Acknowledge beta status and confirm you are 18 or older
+4. Create your account (your consents are recorded with the document version)
 
 ### 2. Submit Your First Wisdom
 
@@ -406,6 +403,20 @@ Study ethical AI data practices:
 
 ---
 
+## ⚠️ Known Limitations (Beta)
+
+Read this before relying on any claim above. Everything here is on the roadmap, none of it is done:
+
+- **Attribution signature is hash-based, not key-based.** The `signature` field is a SHA-256 over the content hash, author identifier, and app id. It proves integrity, not authorship. Real per-contributor key signing (Ed25519 with `did:key`) and C2PA manifests are planned.
+- **`did:ysense:` is not a registered DID method** and cannot be resolved by standard DID tooling yet.
+- **Quality metrics are keyword heuristics**, English-only, and not validated against human ratings. Treat the scores as feedback hints, not as a measure of training value. A rubric-based, model-graded replacement is planned.
+- **The Hugging Face Wisdom Canvas Space is a UX mock-up.** It does not call an AI model; the layer text and scores it shows are placeholders.
+- **No licensing revenue exists yet.** The revenue-share percentages describe the intended model once a licensing deal exists; nothing is being paid out today.
+- **Single-instance SQLite.** Fine for a beta on one machine; a Cloud Run redeploy wipes the local database.
+- **Not independently audited** for GDPR, PDPA, or security.
+
+---
+
 ## 🗺️ Roadmap
 
 ### v4.5-Beta (November 2025)
@@ -474,8 +485,8 @@ We welcome contributions from developers, researchers, and community members!
 ### Getting Started
 
 1. Read [CONTRIBUTING.md](CONTRIBUTING.md)
-23. Check [open issues](https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure/issues)3. Join our [Discord](https://discord.gg/ysenseai) (coming soon)
-4. Fork the repository and submit a pull request
+2. Check [open issues](https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure/issues)
+3. Fork the repository and submit a pull request (Discord is planned, not yet open)
 
 ### Development Setup
 
@@ -488,10 +499,10 @@ cd YSense-AI-Attribution-Infrastructure
 git checkout -b feature/your-feature-name
 
 # Install dev dependencies
-pip install -r requirements_dev.txt
+pip install -r v45_beta/requirements.txt
 
-# Run tests
-pytest tests/
+# Run the smoke tests (no API keys needed)
+pytest v45_beta/tests
 
 # Submit pull request
 git push origin feature/your-feature-name

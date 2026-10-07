@@ -1,22 +1,19 @@
 # YSenseAI v4.5-Beta Production Requirements
+# Verified on Python 3.11 to 3.13 (October 2026)
 
 # Core Framework
-streamlit==1.29.0
+streamlit>=1.50,<2
 
 # AI APIs
-anthropic==0.39.0
-openai==1.54.5
-
-# Database
-# For SQLite (included in Python)
-# For PostgreSQL (optional, for production scale):
-# psycopg2-binary==2.9.9
+# anthropic 1.x (the 0.x line is end of life). Qwen is reached through the
+# OpenAI-compatible endpoint, so the openai client is used for it.
+anthropic>=1.0,<2
+openai>=1.0
 
 # Utilities
-python-dotenv==1.0.0
-requests==2.31.0
+python-dotenv>=1.0
 
-# Export Features
-# For PDF generation (optional):
-# reportlab==4.0.7
-# weasyprint==60.1
+# Database
+# SQLite ships with Python. For anything beyond a single beta instance use
+# PostgreSQL (psycopg[binary]) or a hosted SQLite such as Turso; Cloud Run
+# containers lose their local database on every redeploy.

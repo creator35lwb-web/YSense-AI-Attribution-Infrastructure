@@ -11,6 +11,18 @@ This directory contains the complete research materials, methodologies, and fram
 
 ## 📚 Directory Structure
 
+### 0. Audits (`audits/`)
+
+Independent, point-in-time assessments of the project. Blunt by design; each one is dated and should be read against the code at that date.
+
+- **[2026-10-07-deep-analysis-and-market-report.md](audits/2026-10-07-deep-analysis-and-market-report.md)**
+  - Verified code defects (with reproduction), engineering and positioning assessment
+  - AI training-data legal, licensing, competitor, demand-side and funding landscape as of October 2026
+  - Scorecard, 90-day recommendations, and the metrics that would show the heading is working
+  - The week-one fixes it recommended were applied in the same change set (see CHANGELOG, Unreleased)
+
+---
+
 ### 1. Methodology (`methodology/`)
 
 Core research on the 5-layer perception toolkit that powers wisdom extraction.

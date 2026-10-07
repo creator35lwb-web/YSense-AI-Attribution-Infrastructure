@@ -5,6 +5,37 @@ All notable changes to YSenseAI will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased] - 2026-10-07
+
+Week-one fixes following the October 2026 project audit. Nothing here adds a feature; it makes the documented behaviour true.
+
+### Fixed
+- The README's entry point (`app_legal_protected.py`) imported five names that did not exist and could not start. `app_final.py` is now the single canonical app and the README, Docker, and Quick Start instructions all point at it.
+- `config.py` raised on import whenever either API key was missing, which stopped the app even though only Claude is used. It now warns and the app runs in offline fallback mode.
+- Default Anthropic model was `claude-3-haiku-20240307`, retired 19 April 2026. Default is now `claude-haiku-4-5`, configurable with `ANTHROPIC_MODEL`.
+- Offline fallback text no longer returns marketing copy that looked like real analysis; it returns a clearly labelled offline notice.
+- README install and Docker commands used wrong paths, a wrong class name, and the wrong port.
+- Saving a wisdom submission raised `KeyError: 'layer_responses'` because the attribution engine emits the key `layers` while the database expected `layer_responses`. Found by the new smoke test; the database now accepts both.
+
+### Security
+- Passwords are now hashed with salted scrypt. Existing unsalted SHA-256 rows still verify and are upgraded on next login.
+- **Action required by the maintainer:** an Alibaba Cloud Qwen API key committed in November 2025 remains recoverable from git history despite the February 2026 redaction commits. Rotate it in the Alibaba Cloud console.
+
+### Changed
+- Registration now requires ticking privacy policy, terms of service, beta acknowledgment, and age consents, each recorded in a new `consents` table with the document version. Optional research-participation consent is recorded too.
+- Export page shows the user's full consent history and offers self-service account deletion (submissions, sessions, and analytics removed; consent rows anonymised as an audit trail).
+- The "Est. Revenue" tile, which multiplied submissions by €15 with no licensing deal behind it, now shows €0 and says so.
+- Dependency pins moved to `anthropic>=1.0,<2`, `streamlit>=1.50,<2`, `openai>=1.0`. Unused `requests` pin dropped.
+- README gains a "Known Limitations (Beta)" section stating plainly that the signature is hash-based, the DID method is unregistered, the quality metrics are heuristics, the Hugging Face Space is a mock-up, and no revenue exists yet.
+
+### Removed
+- Five duplicate or broken app variants (`app_complete.py`, `app_production.py`, `app_v2_story_first.py`, `app_v2_1_collaborative.py`, `app_v45_beta.py`) and the broken `app_legal_protected.py`. All remain in git history.
+- Dead consent modules (`consent_manager.py` depended on SQLAlchemy and a module that did not exist; `consent_dashboard_revenue.py` and `consent_database.py` were never wired in). Consent recording now lives in `database/schema.py`.
+
+### Added
+- `v45_beta/tests/test_smoke.py`: attribution round trip, quality metric ranges, password hashing, database and consent flow, offline-mode client, and a check that every `from X import Y` in the app resolves.
+- GitHub Actions CI workflow (compile, smoke tests, and a headless Streamlit start on Python 3.11 and 3.13), shipped at `ci/github-workflow-ci.yml` because the pushing token lacked the `workflow` scope; see `ci/README.md` to activate it.
+
 ## [4.5.0-beta] - 2025-11-27
 
 ### Added

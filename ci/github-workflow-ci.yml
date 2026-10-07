@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install
+        run: pip install -r v45_beta/requirements.txt
+      - name: Compile every Python file
+        run: python -m compileall -q v45_beta attribution_engine.py
+      - name: Smoke tests (no API keys needed)
+        run: pytest -q v45_beta/tests
+      - name: Streamlit app starts and answers its health check
+        run: |
+          cd v45_beta
+          streamlit run app_final.py --server.headless true --server.port 8601 \
+            --browser.gatherUsageStats false > /tmp/streamlit.log 2>&1 &
+          for i in $(seq 1 30); do
+            curl -sf http://localhost:8601/_stcore/health && exit 0
+            sleep 1
+          done
+          echo "Streamlit did not become healthy"; cat /tmp/streamlit.log; exit 1

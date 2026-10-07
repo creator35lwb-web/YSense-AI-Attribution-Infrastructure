@@ -34,7 +34,7 @@ Week-one fixes following the October 2026 project audit. Nothing here adds a fea
 
 ### Added
 - `v45_beta/tests/test_smoke.py`: attribution round trip, quality metric ranges, password hashing, database and consent flow, offline-mode client, and a check that every `from X import Y` in the app resolves.
-- GitHub Actions CI (`.github/workflows/ci.yml`): compile, smoke tests, and a headless Streamlit start on Python 3.11 and 3.13.
+- GitHub Actions CI workflow (compile, smoke tests, and a headless Streamlit start on Python 3.11 and 3.13), shipped at `ci/github-workflow-ci.yml` because the pushing token lacked the `workflow` scope; see `ci/README.md` to activate it.
 
 ## [4.5.0-beta] - 2025-11-27
 

@@ -5,7 +5,6 @@
 [![Z-Protocol v2.0](https://img.shields.io/badge/Z--Protocol-v2.0-blue.svg)](https://doi.org/10.5281/zenodo.17072168)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![Status: Beta](https://img.shields.io/badge/status-beta-orange.svg)]()
-[![CI](https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure/actions/workflows/ci.yml/badge.svg)](https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure/actions/workflows/ci.yml)
 [![VerifiMind PEAS v0.5.0](https://img.shields.io/badge/VerifiMind_PEAS-v0.5.0_Foundation-00bcd4.svg)](https://verifimind.io)
 [![HuggingFace Demo](https://img.shields.io/badge/🤗_HuggingFace-Demo-yellow.svg)](https://huggingface.co/spaces/YSenseAI/wisdom-canvas)
 

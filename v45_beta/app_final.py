@@ -1,6 +1,9 @@
 """
-YSenseAI v4.5-Beta FINAL PRODUCTION
-Complete platform ready for ysenseai.org deployment
+YSenseAI v4.5-Beta: the single canonical Streamlit app.
+
+Run with:  streamlit run v45_beta/app_final.py
+Works without any AI API key (offline fallback), so the consent, attribution,
+library, and export features can be exercised end to end.
 """
 
 import streamlit as st
@@ -9,7 +12,6 @@ import time
 from datetime import datetime
 from pathlib import Path
 import sys
-import hashlib
 
 # Add directories to path
 sys.path.append(str(Path(__file__).parent))
@@ -19,6 +21,12 @@ from attribution.attribution_engine import AttributionEngine
 from attribution.quality_metrics import QualityMetricsCalculator
 from database.schema import YSenseDatabase
 from ui.layer_config import CONSENT_TIERS
+
+PLATFORM_VERSION = "4.5-beta"
+LEGAL_DOCS_VERSION = "1.0-beta"
+_REPO = "https://github.com/creator35lwb-web/YSense-AI-Attribution-Infrastructure/blob/main/v45_beta/legal"
+PRIVACY_POLICY_URL = f"{_REPO}/privacy_policy.md"
+TERMS_OF_SERVICE_URL = f"{_REPO}/terms_of_service.md"
 
 # Page configuration
 st.set_page_config(
@@ -205,18 +213,50 @@ def login_page():
                     st.error("❌ Invalid credentials")
         
         with tab2:
+            st.warning(
+                "**Beta program.** YSenseAI v4.5-Beta is experimental software provided "
+                "\"as is\". Features may change or break and the service may be interrupted. "
+                "No licensing revenue is being generated yet; revenue sharing starts only "
+                "when a licensing deal exists and will be announced before it applies."
+            )
             reg_email = st.text_input("Email", key="reg_email")
             reg_password = st.text_input("Password", type="password", key="reg_password")
             reg_confirm = st.text_input("Confirm Password", type="password", key="reg_confirm")
-            
+
+            st.markdown("**Required to create an account**")
+            consent_privacy = st.checkbox(
+                f"I have read the [Privacy Policy]({PRIVACY_POLICY_URL}) and consent to "
+                "YSenseAI processing my data as it describes", key="c_privacy")
+            consent_terms = st.checkbox(
+                f"I accept the [Terms of Service]({TERMS_OF_SERVICE_URL})", key="c_terms")
+            consent_beta = st.checkbox(
+                "I understand this is a beta product used at my own risk", key="c_beta")
+            consent_age = st.checkbox("I am 18 years of age or older", key="c_age")
+
+            st.markdown("**Optional** (you can change these later)")
+            consent_research = st.checkbox(
+                "I am willing to take part in anonymised academic research on consent "
+                "and attribution", value=False, key="c_research")
+
             if st.button("Create Account", type="primary", use_container_width=True):
-                if reg_password != reg_confirm:
+                required = [consent_privacy, consent_terms, consent_beta, consent_age]
+                if not reg_email or "@" not in reg_email:
+                    st.error("❌ Please enter a valid email address")
+                elif reg_password != reg_confirm:
                     st.error("❌ Passwords don't match")
-                elif len(reg_password) < 6:
-                    st.error("❌ Password must be 6+ characters")
+                elif len(reg_password) < 8:
+                    st.error("❌ Password must be 8+ characters")
+                elif not all(required):
+                    st.error("❌ All required consents must be ticked to create an account")
                 else:
                     user_id = db.create_user(reg_email, reg_password)
                     if user_id:
+                        meta = {"client": "streamlit", "platform_version": PLATFORM_VERSION}
+                        for ctype in ("privacy_policy", "terms_of_service",
+                                      "beta_acknowledgment", "age_verification"):
+                            db.record_consent(user_id, ctype, True, LEGAL_DOCS_VERSION, meta)
+                        db.record_consent(user_id, "research_participation",
+                                          bool(consent_research), LEGAL_DOCS_VERSION, meta)
                         st.success("✅ Account created! Please login.")
                     else:
                         st.error("❌ Email already exists")
@@ -237,8 +277,8 @@ def library_page():
         avg = stats.get("avg_quality_score", 0) or 0
         st.markdown(f'<div class="stat-card"><div class="stat-value">{avg:.2f}</div><div class="stat-label">Avg Quality</div></div>', unsafe_allow_html=True)
     with col4:
-        revenue = stats.get("total_submissions", 0) * 15
-        st.markdown(f'<div class="stat-card"><div class="stat-value">€{revenue}</div><div class="stat-label">Est. Revenue</div></div>', unsafe_allow_html=True)
+        # No licensing deals exist yet; never show an invented figure.
+        st.markdown('<div class="stat-card"><div class="stat-value">€0</div><div class="stat-label">Licensing Revenue (no deals yet)</div></div>', unsafe_allow_html=True)
     
     st.markdown("---")
     
@@ -467,6 +507,33 @@ def export_page():
         for s in submissions:
             writer.writerow([s['created_at'][:10], ". ".join(s['distilled_essence']), s['raw_story'][:100], s['quality_scores'].get('overall', 0)])
         st.download_button("💾 Download CSV", data=output.getvalue(), file_name=f"ysense_{datetime.now().strftime('%Y%m%d')}.csv", mime="text/csv", use_container_width=True)
+
+    st.markdown("---")
+    st.subheader("🛡️ Your consent record")
+    st.caption("Every consent you have given or withdrawn, newest first. "
+               "Withdrawal excludes your data from future AI training; see Z-Protocol v2.1 "
+               "for what withdrawal can and cannot do once a model has been trained.")
+    consents = db.get_user_consents(st.session_state.user_id)
+    if consents:
+        st.table([{"When": c['created_at'][:19].replace('T', ' '),
+                   "Consent": c['consent_type'],
+                   "Granted": "yes" if c['granted'] else "no",
+                   "Document": c['document_version'] or ""} for c in consents])
+    else:
+        st.info("No consent records found for this account.")
+
+    st.markdown("---")
+    st.subheader("🗑️ Delete my account")
+    st.caption("Permanently removes your account, stories, sessions, and analytics from this "
+               "server. Consent records are kept in anonymised form as an audit trail.")
+    confirm = st.checkbox("I understand this cannot be undone", key="confirm_delete")
+    if st.button("Delete my account and all my data", type="secondary", disabled=not confirm):
+        counts = db.delete_user(st.session_state.user_id)
+        st.session_state.authenticated = False
+        st.session_state.user_id = None
+        st.success(f"Deleted: {counts}")
+        time.sleep(1.5)
+        st.rerun()
 
 # Main App
 def main():

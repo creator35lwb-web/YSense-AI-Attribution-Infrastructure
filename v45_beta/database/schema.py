@@ -5,11 +5,44 @@ SQLite database for data vault, users, and submissions
 
 import sqlite3
 import hashlib
+import hmac
 import secrets
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Optional, List, Dict
 import json
+
+
+# Password hashing: salted scrypt (stdlib, no extra dependency).
+# Legacy rows created before this change hold a bare SHA-256 hex digest;
+# they still verify and are transparently upgraded on next login.
+_SCRYPT_N, _SCRYPT_R, _SCRYPT_P = 2 ** 14, 8, 1
+
+
+def hash_password(password: str) -> str:
+    salt = secrets.token_bytes(16)
+    digest = hashlib.scrypt(
+        password.encode("utf-8"), salt=salt, n=_SCRYPT_N, r=_SCRYPT_R, p=_SCRYPT_P
+    )
+    return f"scrypt${_SCRYPT_N}${_SCRYPT_R}${_SCRYPT_P}${salt.hex()}${digest.hex()}"
+
+
+def verify_password(password: str, stored: str) -> bool:
+    if stored.startswith("scrypt$"):
+        try:
+            _, n, r, p, salt_hex, digest_hex = stored.split("$")
+            digest = hashlib.scrypt(
+                password.encode("utf-8"),
+                salt=bytes.fromhex(salt_hex),
+                n=int(n), r=int(r), p=int(p),
+            )
+            return hmac.compare_digest(digest.hex(), digest_hex)
+        except (ValueError, TypeError):
+            return False
+    # Legacy unsalted SHA-256
+    legacy = hashlib.sha256(password.encode("utf-8")).hexdigest()
+    return hmac.compare_digest(legacy, stored)
+
 
 class YSenseDatabase:
     """
@@ -96,56 +129,148 @@ class YSenseDatabase:
         )
         """)
         
+        # Consent records (Z-Protocol audit trail: one row per grant or revocation)
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS consents (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id INTEGER NOT NULL,
+            consent_type TEXT NOT NULL,
+            granted BOOLEAN NOT NULL,
+            document_version TEXT,
+            metadata TEXT,
+            created_at TEXT NOT NULL,
+            FOREIGN KEY (user_id) REFERENCES users(id)
+        )
+        """)
+
         # Create indexes
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_consents_user_id ON consents(user_id)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_submissions_user_id ON submissions(user_id)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_submissions_created_at ON submissions(created_at)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_sessions_token ON sessions(session_token)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_sessions_user_id ON sessions(user_id)")
         
         conn.commit()
-        print("✅ Database initialized successfully")
-    
+
     # User Management
-    
+
     def create_user(self, email: str, password: str, username: str = None) -> Optional[int]:
         """Create new user"""
         try:
-            password_hash = hashlib.sha256(password.encode()).hexdigest()
             conn = self.get_connection()
             cursor = conn.cursor()
-            
+
             cursor.execute("""
             INSERT INTO users (email, password_hash, username, created_at)
             VALUES (?, ?, ?, ?)
-            """, (email, password_hash, username, datetime.utcnow().isoformat()))
-            
+            """, (email, hash_password(password), username, datetime.utcnow().isoformat()))
+
             conn.commit()
             return cursor.lastrowid
         except sqlite3.IntegrityError:
             return None  # User already exists
-    
+
     def authenticate_user(self, email: str, password: str) -> Optional[Dict]:
         """Authenticate user and return user data"""
-        password_hash = hashlib.sha256(password.encode()).hexdigest()
         conn = self.get_connection()
         cursor = conn.cursor()
-        
+
         cursor.execute("""
-        SELECT id, email, username, created_at
+        SELECT id, email, username, created_at, password_hash
         FROM users
-        WHERE email = ? AND password_hash = ? AND is_active = 1
-        """, (email, password_hash))
-        
+        WHERE email = ? AND is_active = 1
+        """, (email,))
+
         row = cursor.fetchone()
-        if row:
-            # Update last login
-            cursor.execute("""
-            UPDATE users SET last_login = ? WHERE id = ?
-            """, (datetime.utcnow().isoformat(), row['id']))
+        if row and verify_password(password, row['password_hash']):
+            now = datetime.utcnow().isoformat()
+            if not row['password_hash'].startswith("scrypt$"):
+                # Upgrade legacy unsalted hash in place
+                cursor.execute("UPDATE users SET password_hash = ?, last_login = ? WHERE id = ?",
+                               (hash_password(password), now, row['id']))
+            else:
+                cursor.execute("UPDATE users SET last_login = ? WHERE id = ?", (now, row['id']))
             conn.commit()
-            
-            return dict(row)
+
+            user = dict(row)
+            user.pop('password_hash', None)
+            return user
         return None
+
+    def get_user_by_email(self, email: str) -> Optional[Dict]:
+        """Get user by email (no password hash returned)"""
+        conn = self.get_connection()
+        cursor = conn.cursor()
+        cursor.execute("""
+        SELECT id, email, username, created_at, last_login
+        FROM users WHERE email = ? AND is_active = 1
+        """, (email,))
+        row = cursor.fetchone()
+        return dict(row) if row else None
+
+    def delete_user(self, user_id: int) -> Dict:
+        """Delete a user and everything they own (GDPR / PDPA erasure).
+
+        Consent rows are kept but anonymised (user_id set to 0) so the
+        audit trail can show that consent existed and was withdrawn.
+        """
+        conn = self.get_connection()
+        cursor = conn.cursor()
+        counts = {}
+        for table in ("submissions", "sessions", "analytics"):
+            cursor.execute(f"DELETE FROM {table} WHERE user_id = ?", (user_id,))
+            counts[table] = cursor.rowcount
+        cursor.execute("""
+        INSERT INTO consents (user_id, consent_type, granted, document_version, metadata, created_at)
+        VALUES (?, 'account_deletion', 1, NULL, NULL, ?)
+        """, (user_id, datetime.utcnow().isoformat()))
+        cursor.execute("UPDATE consents SET user_id = 0 WHERE user_id = ?", (user_id,))
+        cursor.execute("DELETE FROM users WHERE id = ?", (user_id,))
+        counts["users"] = cursor.rowcount
+        conn.commit()
+        return counts
+
+    # Consent Management
+
+    def record_consent(self, user_id: int, consent_type: str, granted: bool,
+                       document_version: str = None, metadata: Dict = None) -> int:
+        """Append a consent grant or revocation to the audit trail"""
+        conn = self.get_connection()
+        cursor = conn.cursor()
+        cursor.execute("""
+        INSERT INTO consents (user_id, consent_type, granted, document_version, metadata, created_at)
+        VALUES (?, ?, ?, ?, ?, ?)
+        """, (user_id, consent_type, bool(granted), document_version,
+              json.dumps(metadata) if metadata else None, datetime.utcnow().isoformat()))
+        conn.commit()
+        return cursor.lastrowid
+
+    def get_user_consents(self, user_id: int) -> List[Dict]:
+        """Full consent history for a user, newest first"""
+        conn = self.get_connection()
+        cursor = conn.cursor()
+        cursor.execute("""
+        SELECT id, consent_type, granted, document_version, metadata, created_at
+        FROM consents WHERE user_id = ? ORDER BY created_at DESC, id DESC
+        """, (user_id,))
+        rows = []
+        for row in cursor.fetchall():
+            item = dict(row)
+            item['granted'] = bool(item['granted'])
+            item['metadata'] = json.loads(item['metadata']) if item['metadata'] else {}
+            rows.append(item)
+        return rows
+
+    def has_consent(self, user_id: int, consent_type: str) -> bool:
+        """True if the most recent record of this type is a grant"""
+        conn = self.get_connection()
+        cursor = conn.cursor()
+        cursor.execute("""
+        SELECT granted FROM consents WHERE user_id = ? AND consent_type = ?
+        ORDER BY created_at DESC, id DESC LIMIT 1
+        """, (user_id, consent_type))
+        row = cursor.fetchone()
+        return bool(row['granted']) if row else False
     
     def get_user_by_id(self, user_id: int) -> Optional[Dict]:
         """Get user by ID"""
@@ -166,10 +291,7 @@ class YSenseDatabase:
     def create_session(self, user_id: int, expires_hours: int = 24) -> str:
         """Create new session token"""
         session_token = secrets.token_urlsafe(32)
-        expires_at = datetime.utcnow()
-        # Add expires_hours to current time
-        from datetime import timedelta
-        expires_at = expires_at + timedelta(hours=expires_hours)
+        expires_at = datetime.utcnow() + timedelta(hours=expires_hours)
         
         conn = self.get_connection()
         cursor = conn.cursor()
@@ -217,7 +339,11 @@ class YSenseDatabase:
         
         # Generate share token
         share_token = secrets.token_urlsafe(16)
-        
+
+        # AttributionEngine.create_wisdom_asset() emits "layers"; older callers
+        # passed "layer_responses". Accept both so the save path cannot KeyError.
+        layers = attribution_data.get('layer_responses', attribution_data.get('layers', {}))
+
         cursor.execute("""
         INSERT INTO submissions (
             user_id, asset_id, author_did, raw_story, extracted_layers,
@@ -230,7 +356,7 @@ class YSenseDatabase:
             attribution_data['asset_id'],
             attribution_data['author_did'],
             attribution_data['raw_story'],
-            json.dumps(attribution_data['layer_responses']),
+            json.dumps(layers),
             json.dumps(attribution_data['distilled_essence']),
             json.dumps(attribution_data.get('distillation_dialogue', [])),
             attribution_data['consent_tier'],
